@@ -2,11 +2,20 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
+    MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 73, 229, 253),
-        body: Center(
-          child: Text('your worm is a happy worm'),
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 73, 229, 253),
+                Color.fromARGB(255, 188, 233, 255),
+              ],
+            ),
+          ),
+          child: const Center(
+            child: Text('your worm is a happy worm'),
+          ),
         ),
       ),
     ),
