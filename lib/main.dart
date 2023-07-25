@@ -16,7 +16,13 @@ void main() {
             ),
           ),
           child: const Center(
-            child: Text('your worm is a happy worm'),
+            child: Text(
+              'your worm is a happy worm',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 28,
+              ),
+            ),
           ),
         ),
       ),
