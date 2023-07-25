@@ -1,4 +1,4 @@
-# self_care_vpet
+# habit_vpet
 
 A new Flutter project.
 

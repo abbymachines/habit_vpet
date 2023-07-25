@@ -1,6 +1,6 @@
 {
-    "name": "self_care_vpet",
-    "short_name": "self_care_vpet",
+    "name": "habit_vpet",
+    "short_name": "habit_vpet",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,4 +1,4 @@
-package com.example.self_care_vpet
+package com.example.habit_vpet
 
 import io.flutter.embedding.android.FlutterActivity
 
