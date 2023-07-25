@@ -1,5 +1,50 @@
 # BLOG
 
+2023.7.24
+THE TAMAGOTCHI
+
+the tamagotchi will have a value for "hunger"
+this will be a value in the range of 0 to 4.
+
+it will also have a hidden value for "time"
+this will be a 3-point scale that gets incremented
+through over a period of time. each point represents a
+day at that value. as the time increments,
+the condition of the tamagotchi changes.
+
+4.1: content, happy. there is no roll for sickness. 5% roll for evolution
+- AN ASIDE: sometimes, the tamagotchi poops. this happens
+semi-randomly whenever there are incomplete habits. all the
+user does to clean up the poop is complete a single habit. :)
+4.2: happy, joyful. hearts emanating from tama. 10% roll for evolution
+4.3: blissful. hearts emanating from tama. 20% roll for evolution
+
+3.1: content, happy. 5% roll for sickness.
+3.2: content, happy. 6% roll for sickness.
+3.3: content. 7% roll for sickness.
+
+2.1: content. 8% roll for sickness.
+2.2: anxious, tired. 9% roll for sickness.
+2.3: tired, upset. 10% roll for sickness.
+
+1.1: upset. 11% roll for sickness.
+2.2: upset. 12% roll for sickness.
+2.3: upset, angry. 13% roll for sickness.
+
+3.3: angry, sad. 14% roll for sickness.
+3.4: sad, crying. 15% roll for sickness.
+3.5: sad, crying. 16% roll for sickness.
+
+SICKNESS:
+day 1: no roll for death.
+day 2: .5% roll for death.
+day 3: 1% roll for death.
+day 4: 5%  roll for death.
+day 5+: 10% roll for death.
+
+you cure sickness by completing habits.
+
+2023
 So I've had this idea for a self-care app.
 
 Basically it would take all the features of Loop Habits, and add a virtual pet on top of it.
