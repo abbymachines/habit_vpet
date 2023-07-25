@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MaterialApp(home: Text('Your worm is a happy worm')));
+  runApp(
+    const MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Text('your worm is a happy worm'),
+        ),
+      ),
+    ),
+  );
 }
