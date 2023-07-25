@@ -4,6 +4,7 @@ void main() {
   runApp(
     const MaterialApp(
       home: Scaffold(
+        backgroundColor: Color.fromARGB(255, 73, 229, 253),
         body: Center(
           child: Text('your worm is a happy worm'),
         ),
