@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/styled_text.dart';
 import 'package:habit_vpet/worm.dart';
+import 'package:habit_vpet/heart.dart';
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key});
@@ -27,7 +28,12 @@ class GradientContainer extends StatelessWidget {
       //   ],
 
       child: ListView(
-        children: const [Center(child: StyledText()), Center(child: Worm())],
+        addAutomaticKeepAlives: false,
+        children: const [
+          Center(child: StyledText()),
+          Center(child: Heart()),
+          Center(child: Worm()),
+        ],
       ),
     );
   }
