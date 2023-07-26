@@ -1,10 +1,16 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
-class Worm extends StatelessWidget {
-  const Worm({super.key});
+// class Worm extends StatefulWidget {
+//   const Worm({super.key});
 
-  @override
-  Widget build(context) {
-    return Image.asset('assets/images/worm2.png');
-  }
-}
+//   @override
+//   State<Worm> createState() {
+//     return _WormState();
+//   }
+// }
+
+// class _WormState extends State<Worm> {
+//   var activeWormImage = 'assets/images/worm2.png';
+
+//   void 
+// }
