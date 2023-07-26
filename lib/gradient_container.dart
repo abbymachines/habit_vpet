@@ -19,14 +19,6 @@ class GradientContainer extends StatelessWidget {
           end: Alignment.bottomLeft,
         ),
       ),
-      // child: const Column(
-      //   children: [
-      //     Center(
-      //       child: StyledText(),
-      //     ),
-      //     Worm(),
-      //   ],
-
       child: ListView(
         addAutomaticKeepAlives: false,
         children: const [
