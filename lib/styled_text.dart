@@ -8,9 +8,10 @@ class StyledText extends StatelessWidget {
     return const Text(
       'your worm is a happy worm',
       style: TextStyle(
-        color: Colors.white,
-        fontSize: 28,
-      ),
+          color: Colors.black,
+          fontSize: 28,
+          fontStyle: FontStyle.italic,
+          backgroundColor: Colors.white),
     );
   }
 }
