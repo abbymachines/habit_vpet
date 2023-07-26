@@ -22,6 +22,7 @@ class GradientContainer extends StatelessWidget {
       ),
       child: ListView(
         addAutomaticKeepAlives: false,
+        padding: const EdgeInsets.all(60),
         children: const [
           Center(child: StyledText()),
           Center(child: HeartBar()),
