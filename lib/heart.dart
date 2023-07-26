@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
-const fullHeart = '❤️';
-const emptyHeart = '♡';
+// const fullHeart = '❤️';
+// const emptyHeart = '♡';
 
 class Heart extends StatelessWidget {
-  const Heart({super.key});
+  const Heart(this.heartStatus, {super.key});
+
+  final String heartStatus;
 
   @override
   Widget build(context) {
-    return const Text(
-      fullHeart,
-      style: TextStyle(fontSize: 15),
+    return Text(
+      heartStatus,
+      style: const TextStyle(fontSize: 15),
     );
   }
 }

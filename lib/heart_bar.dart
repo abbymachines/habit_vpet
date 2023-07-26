@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/heart.dart';
 
+const fullHeart = '❤️';
+const emptyHeart = '♡';
+
 class HeartBar extends StatelessWidget {
   const HeartBar({super.key});
 
@@ -9,10 +12,10 @@ class HeartBar extends StatelessWidget {
     return const Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Heart(),
-        Heart(),
-        Heart(),
-        Heart(),
+        Heart(fullHeart),
+        Heart(fullHeart),
+        Heart(fullHeart),
+        Heart(emptyHeart),
       ],
     );
   }

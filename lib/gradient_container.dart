@@ -26,7 +26,7 @@ class GradientContainer extends StatelessWidget {
         addAutomaticKeepAlives: false,
         padding: const EdgeInsets.all(60),
         children: const [
-          Center(child: StyledText()),
+          Center(child: StyledText('your worm is a happy worm')),
           Center(child: HeartBar()),
           Center(child: Worm()),
         ],
