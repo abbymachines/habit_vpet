@@ -27,12 +27,14 @@ class _PetFeederState extends State<PetFeeder> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset('assets/images/worm$currentPetFrame.png', width: 200),
-        OutlinedButton(
+        OutlinedButton.icon(
           onPressed: feedPet,
           style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.white,
-              textStyle: const TextStyle(fontSize: 28)),
-          child: const Text('feed me!'),
+            foregroundColor: Colors.white,
+            textStyle: const TextStyle(fontSize: 28),
+          ),
+          icon: const Icon(Icons.fastfood),
+          label: const Text('feed me!'),
         ),
       ],
     );
