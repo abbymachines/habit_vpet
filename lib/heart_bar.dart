@@ -6,11 +6,14 @@ class HeartBar extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return const Row(children: <Widget>[
-      Heart(),
-      Heart(),
-      Heart(),
-      Heart(),
-    ]);
+    return const Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Heart(),
+        Heart(),
+        Heart(),
+        Heart(),
+      ],
+    );
   }
 }
