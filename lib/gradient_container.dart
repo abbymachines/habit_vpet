@@ -12,6 +12,10 @@ class GradientContainer extends StatelessWidget {
   final Color color1;
   final Color color2;
 
+  void feedPet() {
+    //
+  }
+
   @override
   Widget build(context) {
     return Container(
@@ -22,14 +26,22 @@ class GradientContainer extends StatelessWidget {
           end: endAlignment,
         ),
       ),
-      child: ListView(
-        addAutomaticKeepAlives: false,
-        padding: const EdgeInsets.all(60),
-        children: const [
-          Center(child: StyledText('your worm is a happy worm')),
-          Center(child: HeartBar()),
-          Center(child: Worm()),
-        ],
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const StyledText('your worm is a happy worm'),
+            const HeartBar(),
+            const Worm(),
+            TextButton(
+              onPressed: feedPet,
+              style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  textStyle: const TextStyle(fontSize: 28)),
+              child: const Text('feed me!'),
+            ),
+          ],
+        ),
       ),
     );
   }
