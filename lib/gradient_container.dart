@@ -4,20 +4,23 @@ import 'package:habit_vpet/worm.dart';
 // import 'package:habit_vpet/heart.dart';
 import 'package:habit_vpet/heart_bar.dart';
 
+var startAlignment = Alignment.topLeft;
+var endAlignment = Alignment.bottomRight;
+
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key});
 
   @override
   Widget build(context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
+          colors: const [
             Color.fromARGB(255, 19, 52, 5),
             Color.fromARGB(255, 209, 243, 17)
           ],
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
+          begin: startAlignment,
+          end: endAlignment,
         ),
       ),
       child: ListView(
