@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/styled_text.dart';
 import 'package:habit_vpet/worm.dart';
-import 'package:habit_vpet/heart.dart';
+// import 'package:habit_vpet/heart.dart';
+import 'package:habit_vpet/heart_bar.dart';
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key});
@@ -23,7 +24,7 @@ class GradientContainer extends StatelessWidget {
         addAutomaticKeepAlives: false,
         children: const [
           Center(child: StyledText()),
-          Center(child: Heart()),
+          Center(child: HeartBar()),
           Center(child: Worm()),
         ],
       ),
