@@ -1,5 +1,7 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
-// import 'package:habit_vpet/worm.dart';
+
+final randomizer = Random();
 
 class PetFeeder extends StatefulWidget {
   const PetFeeder({super.key});
@@ -11,11 +13,11 @@ class PetFeeder extends StatefulWidget {
 }
 
 class _PetFeederState extends State<PetFeeder> {
-  var activePetImage = 'assets/images/worm2.png';
+  var currentPetFrame = 2;
 
   void feedPet() {
     setState(() {
-      activePetImage = 'assets/images/worm4.png';
+      currentPetFrame = randomizer.nextInt(4) + 1;
     });
   }
 
@@ -24,7 +26,7 @@ class _PetFeederState extends State<PetFeeder> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Image.asset(activePetImage, width: 200),
+        Image.asset('assets/images/worm$currentPetFrame.png', width: 200),
         TextButton(
           onPressed: feedPet,
           style: TextButton.styleFrom(
