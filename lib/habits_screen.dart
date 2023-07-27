@@ -12,9 +12,17 @@ class HabitsScreen extends StatefulWidget {
 }
 
 class _HabitsScreenState extends State<HabitsScreen> {
+  var currentHabitIndex = 0;
+
+  void answerHabitQuestion() {
+    setState(() {
+      currentHabitIndex++;
+    });
+  }
+
   @override
   Widget build(context) {
-    final currentQuestion = questions[0];
+    final currentQuestion = questions[currentHabitIndex];
 
     return SizedBox(
       width: double.infinity,
@@ -31,7 +39,8 @@ class _HabitsScreenState extends State<HabitsScreen> {
             ),
             const SizedBox(height: 30),
             ...currentQuestion.getShuffledAnswers().map((answer) {
-              return HabitButton(answerText: answer, onTap: () {});
+              return HabitButton(
+                  answerText: answer, onTap: answerHabitQuestion);
             }),
           ],
         ),
