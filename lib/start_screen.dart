@@ -9,7 +9,7 @@ class StartScreen extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset('assets/images/worm$currentPetFrame.png', width: 200),
+          Image.asset('assets/images/worm1.png', width: 200),
           OutlinedButton.icon(
             onPressed: () {},
             style: OutlinedButton.styleFrom(
