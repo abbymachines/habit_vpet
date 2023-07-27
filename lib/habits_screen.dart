@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_vpet/habit_button.dart';
 
 class HabitsScreen extends StatefulWidget {
   const HabitsScreen({super.key});
@@ -17,20 +18,14 @@ class _HabitsScreenState extends State<HabitsScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('The habit question...'),
+          const Text(
+            'The habit question...',
+            style: TextStyle(color: Colors.white),
+          ),
           const SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Answer 1'),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Answer 2'),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Answer 3'),
-          ),
+          HabitButton(answerText: 'Habit 1', onTap: () {}),
+          HabitButton(answerText: 'Habit 2', onTap: () {}),
+          HabitButton(answerText: 'Habit 3', onTap: () {}),
         ],
       ),
     );
