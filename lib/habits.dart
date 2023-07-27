@@ -18,12 +18,18 @@ class _HabitsState extends State<Habits> {
 
   void switchScreen() {
     setState(() {
-      activeScreen = 'questions-screen';
+      activeScreen = 'habits-screen';
     });
   }
 
   @override
   Widget build(context) {
+    Widget screenWidget = StartScreen(switchScreen);
+
+    if (activeScreen == 'habits-screen') {
+      screenWidget = const HabitsScreen();
+    }
+
     return MaterialApp(
       home: Scaffold(
         body: Container(
@@ -37,9 +43,7 @@ class _HabitsState extends State<Habits> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: activeScreen == 'start-screen'
-              ? StartScreen(switchScreen)
-              : const HabitsScreen(),
+          child: screenWidget,
         ),
       ),
     );
