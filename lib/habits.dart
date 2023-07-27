@@ -12,7 +12,13 @@ class Habits extends StatefulWidget {
 }
 
 class _HabitsState extends State<Habits> {
-  Widget activeScreen = const StartScreen();
+  Widget? activeScreen;
+
+  @override
+  void initState() {
+    activeScreen = StartScreen(switchScreen);
+    super.initState();
+  }
 
   void switchScreen() {
     setState(() {

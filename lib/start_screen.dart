@@ -3,7 +3,9 @@ import 'package:habit_vpet/styled_text.dart';
 import 'package:habit_vpet/heart_bar.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({super.key});
+  const StartScreen(this.startHabits, {super.key});
+
+  final void Function() startHabits;
 
   @override
   Widget build(context) {
@@ -17,7 +19,7 @@ class StartScreen extends StatelessWidget {
           Image.asset('assets/images/worm1.png', width: 200),
           const SizedBox(height: 70),
           OutlinedButton.icon(
-            onPressed: () {},
+            onPressed: startHabits,
             style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
             icon: const Icon(Icons.fastfood),
             label: const Text('feed me'),
