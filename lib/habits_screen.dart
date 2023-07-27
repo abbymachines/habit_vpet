@@ -11,7 +11,28 @@ class HabitsScreen extends StatefulWidget {
 
 class _HabitsScreenState extends State<HabitsScreen> {
   @override
-  build(context) {
-    return const Text('HabitsScreen');
+  Widget build(context) {
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text('The habit question...'),
+          const SizedBox(height: 30),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text('Answer 1'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text('Answer 2'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text('Answer 3'),
+          ),
+        ],
+      ),
+    );
   }
 }
