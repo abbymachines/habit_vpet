@@ -25,7 +25,7 @@ class StartScreen extends StatelessWidget {
           OutlinedButton.icon(
             onPressed: startHabits,
             style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
-            icon: const Icon(Icons.fastfood),
+            icon: const Icon(Icons.arrow_circle_right),
             label: const Text('habits'),
           ),
         ],

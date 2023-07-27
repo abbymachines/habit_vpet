@@ -31,12 +31,11 @@ class _PetFeederState extends State<PetFeeder> {
           width: 200,
         ),
         const SizedBox(height: 20),
-        TextButton(
+        OutlinedButton.icon(
           onPressed: feedPet,
-          style: TextButton.styleFrom(
-              foregroundColor: Colors.white,
-              textStyle: const TextStyle(fontSize: 28)),
-          child: const Text('Feed Pet'),
+          style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
+          icon: const Icon(Icons.fastfood),
+          label: const Text('Feed Pet'),
         ),
       ],
     );
