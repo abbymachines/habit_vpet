@@ -30,7 +30,7 @@ class _HabitsScreenState extends State<HabitsScreen> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
-            ...currentQuestion.answers.map((answer) {
+            ...currentQuestion.getShuffledAnswers().map((answer) {
               return HabitButton(answerText: answer, onTap: () {});
             }),
           ],
