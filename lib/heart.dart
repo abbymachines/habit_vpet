@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-// const fullHeart = '❤️';
-// const emptyHeart = '♡';
-
 class Heart extends StatelessWidget {
   const Heart(this.heartStatus, {super.key});
 
