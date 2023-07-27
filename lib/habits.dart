@@ -12,17 +12,13 @@ class Habits extends StatefulWidget {
 }
 
 class _HabitsState extends State<Habits> {
-  Widget? activeScreen;
+  // Widget? activeScreen;
 
-  @override
-  void initState() {
-    activeScreen = StartScreen(switchScreen);
-    super.initState();
-  }
+  var activeScreen = 'start-screen';
 
   void switchScreen() {
     setState(() {
-      activeScreen = const HabitsScreen();
+      activeScreen = 'questions-screen';
     });
   }
 
@@ -41,7 +37,9 @@ class _HabitsState extends State<Habits> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: activeScreen,
+          child: activeScreen == 'start-screen'
+              ? StartScreen(switchScreen)
+              : const HabitsScreen(),
         ),
       ),
     );
