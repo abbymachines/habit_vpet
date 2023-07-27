@@ -22,7 +22,7 @@ class StartScreen extends StatelessWidget {
             onPressed: startHabits,
             style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
             icon: const Icon(Icons.fastfood),
-            label: const Text('feed me'),
+            label: const Text('habits'),
           ),
         ],
       ),
