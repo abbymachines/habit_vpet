@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:habit_vpet/habits_screen.dart';
 import 'package:habit_vpet/results_screen.dart';
 import 'package:habit_vpet/start_screen.dart';
@@ -28,7 +29,6 @@ class _HabitsState extends State<Habits> {
 
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        selectedAnswers = [];
         activeScreen = 'results-screen';
       });
     }
@@ -45,7 +45,9 @@ class _HabitsState extends State<Habits> {
     }
 
     if (activeScreen == 'results-screen') {
-      screenWidget = const ResultsScreen();
+      screenWidget = ResultsScreen(
+        chosenAnswers: selectedAnswers,
+      );
     }
 
     return MaterialApp(
