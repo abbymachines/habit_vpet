@@ -27,9 +27,9 @@ class ResultsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final summaryData = getSummaryData();
-    final numTotalQuestions = questions.length;
-    final numCorrectQuestions = summaryData.where((data) {
-      return data['user_answer'] == data['correct_answer'];
+    final numTotalHabits = questions.length;
+    final numCompleteHabits = summaryData.where((data) {
+      return data['user_answer'] == 'Yes';
     }).length;
 
     return SizedBox(
@@ -40,7 +40,7 @@ class ResultsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-                'You completed $numCorrectQuestions out of $numTotalQuestions habits'),
+                'You completed $numCompleteHabits out of $numTotalHabits habits'),
             const SizedBox(
               height: 30,
             ),
