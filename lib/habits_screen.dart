@@ -3,7 +3,12 @@ import 'package:habit_vpet/habit_button.dart';
 import 'package:habit_vpet/data/questions.dart';
 
 class HabitsScreen extends StatefulWidget {
-  const HabitsScreen({super.key});
+  const HabitsScreen({
+    super.key,
+    required this.onSelectAnswer,
+  });
+
+  final void Function(String answer) onSelectAnswer;
 
   @override
   State<HabitsScreen> createState() {
@@ -14,7 +19,8 @@ class HabitsScreen extends StatefulWidget {
 class _HabitsScreenState extends State<HabitsScreen> {
   var currentHabitIndex = 0;
 
-  void answerHabitQuestion() {
+  void answerHabitQuestion(String selectedAnswer) {
+    widget.onSelectAnswer(selectedAnswer);
     setState(() {
       currentHabitIndex++;
     });
@@ -38,10 +44,16 @@ class _HabitsScreenState extends State<HabitsScreen> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
-            ...currentQuestion.getShuffledAnswers().map((answer) {
-              return HabitButton(
-                  answerText: answer, onTap: answerHabitQuestion);
-            }),
+            ...currentQuestion.getShuffledAnswers().map(
+              (answer) {
+                return HabitButton(
+                  answerText: answer,
+                  onTap: () {
+                    answerHabitQuestion(answer);
+                  },
+                );
+              },
+            ),
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/habits_screen.dart';
 import 'package:habit_vpet/start_screen.dart';
+import 'package:habit_vpet/data/questions.dart';
 
 class Habits extends StatefulWidget {
   const Habits({super.key});
@@ -12,8 +13,7 @@ class Habits extends StatefulWidget {
 }
 
 class _HabitsState extends State<Habits> {
-  // Widget? activeScreen;
-
+  List<String> selectedAnswers = [];
   var activeScreen = 'start-screen';
 
   void switchScreen() {
@@ -22,12 +22,25 @@ class _HabitsState extends State<Habits> {
     });
   }
 
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+
+    if (selectedAnswers.length == questions.length) {
+      setState(() {
+        selectedAnswers = [];
+        activeScreen = 'start-screen';
+      });
+    }
+  }
+
   @override
   Widget build(context) {
     Widget screenWidget = StartScreen(switchScreen);
 
     if (activeScreen == 'habits-screen') {
-      screenWidget = const HabitsScreen();
+      screenWidget = HabitsScreen(
+        onSelectAnswer: chooseAnswer,
+      );
     }
 
     return MaterialApp(
