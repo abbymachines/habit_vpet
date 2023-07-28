@@ -1,15 +1,14 @@
 # habit_vpet
 
-A new Flutter project.
+hi :3 this flutter app is still in development!
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+it's gonna have a few features i think! which include:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [a pet that gets hungry]
+- [habits as food]
+- [food as that which makes pet happy]
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
