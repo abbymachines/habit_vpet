@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_vpet/heart.dart';
+// import 'package:habit_vpet/heart.dart';
 
 const fullHeart = '❤️';
 const halfHeart = '❤️‍🩹';
@@ -7,13 +7,23 @@ const emptyHeart = '♡';
 
 class HeartBar extends StatefulWidget {
   const HeartBar({
-    required this.completedHabits,
-    required this.totalHabits,
     super.key,
+    required this.health,
   });
 
-  final int completedHabits;
-  final int totalHabits;
+  final int health;
+  // final int totalHabits;
+  final heartBarStates = const {
+    0: emptyHeart,
+    1: fullHeart,
+    2: fullHeart + fullHeart,
+    3: fullHeart + fullHeart + fullHeart,
+    4: fullHeart + fullHeart + fullHeart + fullHeart,
+    // 5: ,
+    // 6: ,
+    // 7: ,
+    // 8: ,
+  };
 
   @override
   State<HeartBar> createState() {
@@ -22,34 +32,22 @@ class HeartBar extends StatefulWidget {
 }
 
 class _HeartBarState extends State<HeartBar> {
-  var health = 8;
-  // the heart range is 0-8
-  final heartBarStates = {
-    0: emptyHeart,
-    1: halfHeart,
-    2: fullHeart,
-    3: fullHeart + halfHeart,
-    4: fullHeart + fullHeart,
-    5: fullHeart + fullHeart + halfHeart,
-    6: fullHeart + fullHeart + fullHeart,
-    7: fullHeart + fullHeart + fullHeart + halfHeart,
-    8: fullHeart + fullHeart + fullHeart + fullHeart,
-  };
+  var hearts = 2;
 
   void setHealth() {
     setState(() {
-      health = ((widget.completedHabits / widget.totalHabits) * 8).floor();
+      hearts = widget.health * 1;
     });
   }
 
   @override
   Widget build(context) {
-    final hearts = heartBarStates[3];
+    final heartBar = widget.heartBarStates[hearts];
 
     return Container(
       alignment: Alignment.center,
       child: Text(
-        hearts!,
+        heartBar!,
         style: const TextStyle(
           fontSize: 28,
         ),
