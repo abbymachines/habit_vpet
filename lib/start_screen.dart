@@ -14,7 +14,8 @@ class StartScreen extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const StyledText('your worm is a happy worm'),
+          const StyledText(
+              'your worm is a happy worm (replace me with widget)'),
           const SizedBox(height: 20),
           // const HeartBar(3),
           // const SizedBox(height: 10),
