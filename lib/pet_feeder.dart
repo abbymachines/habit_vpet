@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:habit_vpet/heart_bar.dart';
 
 final randomizer = Random();
 
@@ -14,10 +15,12 @@ class PetFeeder extends StatefulWidget {
 
 class _PetFeederState extends State<PetFeeder> {
   var currentPetFrame = 2;
+  var currentHealth = 0;
 
   void feedPet() {
     setState(() {
       currentPetFrame = randomizer.nextInt(4) + 1;
+      currentHealth += 1;
     });
   }
 
@@ -26,6 +29,7 @@ class _PetFeederState extends State<PetFeeder> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        HeartBar(currentHealth),
         Image.asset(
           'assets/images/worm$currentPetFrame.png',
           width: 200,
