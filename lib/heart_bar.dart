@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:habit_vpet/heart.dart';
 
 const fullHeart = '❤️';
 const halfHeart = '❤️‍🩹';
@@ -12,17 +11,12 @@ class HeartBar extends StatefulWidget {
   });
 
   final int health;
-  // final int totalHabits;
   final heartBarStates = const {
     0: emptyHeart,
     1: fullHeart,
     2: fullHeart + fullHeart,
     3: fullHeart + fullHeart + fullHeart,
     4: fullHeart + fullHeart + fullHeart + fullHeart,
-    // 5: ,
-    // 6: ,
-    // 7: ,
-    // 8: ,
   };
 
   @override
@@ -55,19 +49,3 @@ class _HeartBarState extends State<HeartBar> {
     );
   }
 }
-
-
-
-//   @override
-//   Widget build(context) {
-//     return const Row(
-//       mainAxisAlignment: MainAxisAlignment.center,
-//       children: <Widget>[
-//         Heart(fullHeart),
-//         Heart(fullHeart),
-//         Heart(fullHeart),
-//         Heart(emptyHeart),
-//       ],
-//     );
-//   }
-// }
