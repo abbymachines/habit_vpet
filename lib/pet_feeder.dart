@@ -20,7 +20,10 @@ class _PetFeederState extends State<PetFeeder> {
   void feedPet() {
     setState(() {
       currentPetFrame = randomizer.nextInt(4) + 1;
-      currentHealth += 1;
+      if (currentHealth >= 4) {
+        currentHealth = 0;
+      }
+      currentHealth++;
     });
   }
 
