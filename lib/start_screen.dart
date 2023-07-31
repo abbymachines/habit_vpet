@@ -16,7 +16,7 @@ class StartScreen extends StatelessWidget {
         children: [
           const StyledText('your worm is a happy worm'),
           const SizedBox(height: 20),
-          const HeartBar(health: 3),
+          const HeartBar(3),
           const SizedBox(height: 10),
           const Center(
             child: PetFeeder(),
