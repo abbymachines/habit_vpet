@@ -26,6 +26,6 @@ class Habit {
   final String title;
   final String description;
   final String frequency;
-  final String habitColor;
+  final Color habitColor;
   final String isComplete;
 }

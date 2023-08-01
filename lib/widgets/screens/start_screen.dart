@@ -22,6 +22,8 @@ class StartScreen extends StatelessWidget {
             child: PetFeeder(),
           ),
           const SizedBox(height: 30),
+          // HabitList(),
+          const Text('habit list go here'),
           OutlinedButton.icon(
             onPressed: startHabits,
             style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
