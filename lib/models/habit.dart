@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart'; // ⚠️ IMPORT UUID AND MAKE USE OF IT!
 
 enum HabitColor { red, orange, yellow, green, blue, purple }
 
