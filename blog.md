@@ -1,5 +1,12 @@
 # BLOG
 
+2023.8.1
+OK. I have gotten quite a lot done. I've added a worm images for a pet, which sit underneath a health bar than can reach up to 4 hears. There is a button that says "feed me". When you click on it, the bar increments one heart. Very rudimentary but it is the building block for what is to come.
+
+There is much more Udemy course to complete. I am particularly interested in the ones about app-wide state, using Firebase, and making animations in Flutter. But I'll get to those soon enough.
+
+Here I think it may be good to pause and build out my app structure a little bit more. I am learning how to do modal overlays, so it would be good to be able to implement that for habit editing and creation.
+
 2023.7.24
 THE TAMAGOTCHI
 
