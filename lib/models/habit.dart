@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart'; // ⚠️ IMPORT UUID AND MAKE USE OF IT!
 
+const uuid = Uuid();
+
 enum HabitColor { red, orange, yellow, green, blue, purple }
 
 const habitColorHexes = {
@@ -13,14 +15,14 @@ const habitColorHexes = {
 };
 
 class Habit {
-  const Habit(
-    this.title,
-    this.description,
-    this.frequency,
-    this.habitColor,
-    this.isComplete,
-  );
+  Habit(this.description,
+      {required this.title,
+      required this.frequency,
+      required this.habitColor,
+      required this.isComplete})
+      : id = uuid.v4();
 
+  final String id;
   final String title;
   final String description;
   final String frequency;
