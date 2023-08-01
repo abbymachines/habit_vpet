@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:habit_vpet/heart_bar.dart';
+import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
 
 final randomizer = Random();
 
