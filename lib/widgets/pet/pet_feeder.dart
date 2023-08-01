@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
+import 'package:habit_vpet/widgets/pet/pet.dart';
 
 final randomizer = Random();
 
@@ -33,10 +34,7 @@ class _PetFeederState extends State<PetFeeder> {
       mainAxisSize: MainAxisSize.min,
       children: [
         HeartBar(currentHealth),
-        Image.asset(
-          'assets/images/worm$currentPetFrame.png',
-          width: 200,
-        ),
+        Pet(currentPetFrame),
         const SizedBox(height: 20),
         OutlinedButton.icon(
           onPressed: feedPet,
