@@ -52,6 +52,7 @@ class _HabitsState extends State<Habits> {
 
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(),
         body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
