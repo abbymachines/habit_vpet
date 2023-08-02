@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:habit_vpet/models/habit_question.dart';
 import 'package:habit_vpet/styled_text.dart';
 import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
-// import 'package:habit_vpet/widgets/screens/habits_screen.dart';
-// import 'package:habit_vpet/widgets/screens/results_screen.dart';
 import 'package:habit_vpet/widgets/screens/start_screen.dart';
-// import 'package:habit_vpet/data/questions.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 
