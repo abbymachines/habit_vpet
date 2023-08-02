@@ -5,16 +5,16 @@ import 'package:habit_vpet/widgets/screens/results_screen.dart';
 import 'package:habit_vpet/widgets/screens/start_screen.dart';
 import 'package:habit_vpet/data/questions.dart';
 
-class Habits extends StatefulWidget {
-  const Habits({super.key});
+class HabitVpet extends StatefulWidget {
+  const HabitVpet({super.key});
 
   @override
-  State<Habits> createState() {
-    return _HabitsState();
+  State<HabitVpet> createState() {
+    return _HabitVpetState();
   }
 }
 
-class _HabitsState extends State<Habits> {
+class _HabitVpetState extends State<HabitVpet> {
   List<String> selectedAnswers = [];
   var activeScreen = 'start-screen';
 
