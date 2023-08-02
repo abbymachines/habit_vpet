@@ -138,7 +138,7 @@ class _HabitVpetState extends State<HabitVpet> {
                 child: PetFeeder(),
               ),
               const SizedBox(height: 30),
-              Expanded(child: HabitList(_myHabits)),
+              Expanded(flex: 5, child: HabitList(_myHabits)),
               // OutlinedButton.icon(
               //   onPressed: switchScreen,
               //   style: OutlinedButton.styleFrom(foregroundColor: Colors.white),

@@ -21,11 +21,11 @@ class HabitItem extends StatelessWidget {
             Container(
               color: habit.habitColor,
               child: Row(
+                mainAxisSize: MainAxisSize.max,
                 children: [
-                  Text(habit.description),
                   const Spacer(),
                   Text(habit.frequency),
-                  const SizedBox(width: 2),
+                  const Spacer(),
                   Text('${habit.isComplete}')
                 ],
               ),
