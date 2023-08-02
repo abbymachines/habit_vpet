@@ -8,9 +8,9 @@ class Pet extends StatelessWidget {
   @override
   Widget build(context) {
     return SizedBox(
-        width: 300,
-        height: 100,
-        child:
-            Image.asset('assets/images/worm$currentPetFrame.png', width: 200));
+      width: 300,
+      height: 100,
+      child: Image.asset('assets/images/worm$currentPetFrame.png', width: 200),
+    );
   }
 }
