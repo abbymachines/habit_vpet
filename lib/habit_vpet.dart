@@ -4,6 +4,7 @@ import 'package:habit_vpet/widgets/screens/habits_screen.dart';
 import 'package:habit_vpet/widgets/screens/results_screen.dart';
 import 'package:habit_vpet/widgets/screens/start_screen.dart';
 import 'package:habit_vpet/data/questions.dart';
+import 'package:habit_vpet/models/habit.dart';
 
 class HabitVpet extends StatefulWidget {
   const HabitVpet({super.key});
@@ -24,25 +25,25 @@ class _HabitVpetState extends State<HabitVpet> {
     });
   }
 
-  void chooseAnswer(String answer) {
-    selectedAnswers.add(answer);
+  // void chooseAnswer(String answer) {
+  //   selectedAnswers.add(answer);
 
-    if (selectedAnswers.length == questions.length) {
-      setState(() {
-        activeScreen = 'results-screen';
-      });
-    }
-  }
+  //   if (selectedAnswers.length == questions.length) {
+  //     setState(() {
+  //       activeScreen = 'results-screen';
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(context) {
     Widget screenWidget = StartScreen(switchScreen);
 
-    if (activeScreen == 'habits-screen') {
-      screenWidget = HabitsScreen(
-        onSelectAnswer: chooseAnswer,
-      );
-    }
+    // if (activeScreen == 'habits-screen') {
+    //   screenWidget = const HabitsScreen(
+    //     onSelectAnswer: chooseAnswer,
+    //   );
+    // }
 
     if (activeScreen == 'results-screen') {
       screenWidget = ResultsScreen(
