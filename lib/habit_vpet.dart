@@ -132,13 +132,12 @@ class _HabitVpetState extends State<HabitVpet> {
             mainAxisSize: MainAxisSize.min,
             children: [
               const SizedBox(height: 20),
-              const StyledText('thine worm is a contended worm'),
+              const StyledText('thine worm is a contented worm'),
               const SizedBox(height: 20),
               const Center(
                 child: PetFeeder(),
               ),
               const SizedBox(height: 30),
-              const Text('habit list go here'),
               Expanded(child: HabitList(_myHabits)),
               // OutlinedButton.icon(
               //   onPressed: switchScreen,
