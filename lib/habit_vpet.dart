@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:habit_vpet/models/habit_question.dart';
+import 'package:habit_vpet/styled_text.dart';
+import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
 import 'package:habit_vpet/widgets/screens/habits_screen.dart';
 import 'package:habit_vpet/widgets/screens/results_screen.dart';
 import 'package:habit_vpet/widgets/screens/start_screen.dart';
@@ -16,7 +18,64 @@ class HabitVpet extends StatefulWidget {
 }
 
 class _HabitVpetState extends State<HabitVpet> {
-  List<String> selectedAnswers = [];
+  final List<Habit> _myHabits = [
+    Habit(
+      'its like going on a walk but with your cat',
+      title: 'Walk the cat',
+      frequency: 'every day',
+      habitColor: Colors.red,
+      isComplete: false,
+    ),
+    Habit(
+      'you always have homework',
+      title: 'Homework',
+      frequency: 'every weekday',
+      habitColor: Colors.yellow,
+      isComplete: true,
+    ),
+    Habit(
+      'dont forget to exercise ❣️',
+      title: 'Exercise',
+      frequency: 'once a week',
+      habitColor: Colors.blue,
+      isComplete: false,
+    ),
+    Habit(
+      'a filthy room is a filthy mind',
+      title: 'Clean your room',
+      frequency: 'twice a week',
+      habitColor: Colors.blue,
+      isComplete: true,
+    ),
+    Habit(
+      'oink oink oink oink oink',
+      title: 'Play with Piggy :)',
+      frequency: 'every day',
+      habitColor: Colors.red,
+      isComplete: true,
+    ),
+    Habit(
+      'dont get it stinky!',
+      title: 'Take out trash',
+      frequency: 'once every five days',
+      habitColor: Colors.blue,
+      isComplete: false,
+    ),
+    Habit(
+      'mmmm ice cream so good',
+      title: 'Stream',
+      frequency: 'five times a week',
+      habitColor: Colors.yellow,
+      isComplete: false,
+    ),
+    Habit(
+      'do it for piggy',
+      title: 'Clean litterbox',
+      frequency: 'every day',
+      habitColor: Colors.red,
+      isComplete: false,
+    ),
+  ];
   var activeScreen = 'start-screen';
 
   void switchScreen() {
@@ -45,11 +104,11 @@ class _HabitVpetState extends State<HabitVpet> {
     //   );
     // }
 
-    if (activeScreen == 'results-screen') {
-      screenWidget = ResultsScreen(
-        chosenAnswers: selectedAnswers,
-      );
-    }
+    // if (activeScreen == 'results-screen') {
+    //   screenWidget = ResultsScreen(
+    //     chosenAnswers: selectedAnswers,
+    //   );
+    // }
 
     return MaterialApp(
       home: Scaffold(
@@ -65,7 +124,24 @@ class _HabitVpetState extends State<HabitVpet> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: screenWidget,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const StyledText('thine worm is a contended worm'),
+              const SizedBox(height: 20),
+              const Center(
+                child: PetFeeder(),
+              ),
+              const SizedBox(height: 30),
+              const Text('habit list go here'),
+              OutlinedButton.icon(
+                onPressed: switchScreen,
+                style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
+                icon: const Icon(Icons.arrow_circle_right),
+                label: const Text('habits'),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart'; // ⚠️ IMPORT UUID AND MAKE USE OF IT!
 
@@ -27,5 +29,5 @@ class Habit {
   final String description;
   final String frequency;
   final Color habitColor;
-  final String isComplete;
+  final bool isComplete;
 }
