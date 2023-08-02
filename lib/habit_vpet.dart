@@ -7,6 +7,7 @@ import 'package:habit_vpet/widgets/screens/results_screen.dart';
 import 'package:habit_vpet/widgets/screens/start_screen.dart';
 import 'package:habit_vpet/data/questions.dart';
 import 'package:habit_vpet/models/habit.dart';
+import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 
 class HabitVpet extends StatefulWidget {
   const HabitVpet({super.key});
@@ -134,12 +135,13 @@ class _HabitVpetState extends State<HabitVpet> {
               ),
               const SizedBox(height: 30),
               const Text('habit list go here'),
-              OutlinedButton.icon(
-                onPressed: switchScreen,
-                style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
-                icon: const Icon(Icons.arrow_circle_right),
-                label: const Text('habits'),
-              ),
+              Expanded(child: HabitList(_myHabits)),
+              // OutlinedButton.icon(
+              //   onPressed: switchScreen,
+              //   style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
+              //   icon: const Icon(Icons.arrow_circle_right),
+              //   label: const Text('habits'),
+              // ),
             ],
           ),
         ),

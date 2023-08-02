@@ -26,7 +26,7 @@ class HabitItem extends StatelessWidget {
                   const Spacer(),
                   Text(habit.frequency),
                   const SizedBox(width: 2),
-                  Text(habit.isComplete)
+                  Text('${habit.isComplete}')
                 ],
               ),
             )
