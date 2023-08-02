@@ -112,8 +112,11 @@ class _HabitVpetState extends State<HabitVpet> {
     // }
 
     return MaterialApp(
+      theme: ThemeData(useMaterial3: true),
       home: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          toolbarHeight: 10,
+        ),
         body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -128,6 +131,7 @@ class _HabitVpetState extends State<HabitVpet> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              const SizedBox(height: 20),
               const StyledText('thine worm is a contended worm'),
               const SizedBox(height: 20),
               const Center(
