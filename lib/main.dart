@@ -17,8 +17,9 @@ void main() {
         ),
         cardTheme: const CardTheme().copyWith(
           color: kColorScheme.secondaryContainer,
-          shape:
-              const ContinuousRectangleBorder(borderRadius: BorderRadius.zero),
+          shape: const ContinuousRectangleBorder(
+              borderRadius: BorderRadius.zero,
+              side: BorderSide(style: BorderStyle.solid)),
           margin: const EdgeInsets.symmetric(
             horizontal: 0,
             vertical: 0,
