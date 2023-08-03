@@ -19,12 +19,16 @@ class HeartBar extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return Container(
-      alignment: Alignment.center,
-      child: Text(
-        heartBarStates[health]!,
-        style: const TextStyle(
-          fontSize: 28,
+    return SizedBox(
+      width: 300,
+      height: 40,
+      child: Container(
+        alignment: Alignment.center,
+        child: Text(
+          heartBarStates[health]!,
+          style: const TextStyle(
+            fontSize: 28,
+          ),
         ),
       ),
     );
