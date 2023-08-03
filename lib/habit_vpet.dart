@@ -162,10 +162,10 @@ class _HabitVpetState extends State<HabitVpet> {
             const PetStatusMessage('thine worm is a contented worm'),
             const SizedBox(height: 20),
             const Center(
-              child: FrameChanger(),
+              child: PetFeeder(),
             ),
             const Center(
-              child: PetFeeder(),
+              child: FrameChanger(),
             ),
             const SizedBox(height: 30),
             Expanded(
