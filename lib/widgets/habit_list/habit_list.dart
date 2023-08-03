@@ -18,6 +18,7 @@ class HabitList extends StatelessWidget {
       itemCount: habits.length,
       itemBuilder: (ctx, index) => Dismissible(
         key: ValueKey(habits[index]),
+        direction: DismissDirection.endToStart,
         onDismissed: (direction) {
           onRemoveHabit(habits[index]);
         },

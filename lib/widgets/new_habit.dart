@@ -84,14 +84,14 @@ class _NewHabitState extends State<NewHabit> {
           ),
           const Row(
             children: [
-              Text('put a color picker here maybe'),
-              Text('put a toggle button here methinks')
+              Text('🖍️'), // color picker
+              Text('☑️') // toggle completion button
             ],
           ),
           const SizedBox(height: 16),
           Row(
             children: [
-              const Text('put something else here too maybe'),
+              const Text('♣️'), // something else maybe
               const Spacer(),
               TextButton(
                 onPressed: () {
