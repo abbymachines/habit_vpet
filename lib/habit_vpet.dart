@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_vpet/styled_text.dart';
+import 'package:habit_vpet/worm_status_message.dart';
 import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
 import 'package:habit_vpet/widgets/screens/start_screen.dart';
 import 'package:habit_vpet/models/habit.dart';
@@ -159,7 +159,7 @@ class _HabitVpetState extends State<HabitVpet> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 20),
-            const StyledText('thine worm is a contented worm'),
+            const PetStatusMessage('thine worm is a contented worm'),
             const SizedBox(height: 20),
             const Center(
               child: FrameChanger(),
