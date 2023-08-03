@@ -9,12 +9,22 @@ void main() {
   runApp(
     MaterialApp(
       theme: ThemeData().copyWith(
-          useMaterial3: true,
-          colorScheme: kColorScheme,
-          appBarTheme: const AppBarTheme().copyWith(
-            backgroundColor: kColorScheme.onPrimaryContainer,
-            foregroundColor: kColorScheme.primaryContainer,
-          )),
+        useMaterial3: true,
+        colorScheme: kColorScheme,
+        appBarTheme: const AppBarTheme().copyWith(
+          backgroundColor: kColorScheme.onPrimaryContainer,
+          foregroundColor: kColorScheme.primaryContainer,
+        ),
+        cardTheme: const CardTheme().copyWith(
+          color: kColorScheme.secondaryContainer,
+          shape:
+              const ContinuousRectangleBorder(borderRadius: BorderRadius.zero),
+          margin: const EdgeInsets.symmetric(
+            horizontal: 0,
+            vertical: 0,
+          ),
+        ),
+      ),
       home: const HabitVpet(),
     ),
   );
