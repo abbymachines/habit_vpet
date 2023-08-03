@@ -4,6 +4,7 @@ import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
 import 'package:habit_vpet/widgets/screens/start_screen.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
+import 'package:habit_vpet/widgets/new_habit.dart';
 
 class HabitVpet extends StatefulWidget {
   const HabitVpet({super.key});
@@ -81,37 +82,42 @@ class _HabitVpetState extends State<HabitVpet> {
     });
   }
 
-  // void chooseAnswer(String answer) {
-  //   selectedAnswers.add(answer);
+  void _openAddHabitOverlay() {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      builder: (ctx) => NewHabit(onAddHabit: _addHabit),
+    );
+  }
 
-  //   if (selectedAnswers.length == questions.length) {
-  //     setState(() {
-  //       activeScreen = 'results-screen';
-  //     });
-  //   }
-  // }
+  void _addHabit(Habit habit) {
+    setState(() {
+      _myHabits.add(habit);
+    });
+  }
+
+  void _removeHabit(Habit habit) {
+    setState(() {
+      _myHabits.remove(habit);
+    });
+  }
 
   @override
   Widget build(context) {
     Widget screenWidget = StartScreen(switchScreen);
 
-    // if (activeScreen == 'habits-screen') {
-    //   screenWidget = const HabitsScreen(
-    //     onSelectAnswer: chooseAnswer,
-    //   );
-    // }
-
-    // if (activeScreen == 'results-screen') {
-    //   screenWidget = ResultsScreen(
-    //     chosenAnswers: selectedAnswers,
-    //   );
-    // }
-
     return MaterialApp(
       theme: ThemeData(useMaterial3: true),
       home: Scaffold(
         appBar: AppBar(
-          toolbarHeight: 10,
+          title: const Text('habit vpet'),
+          // toolbarHeight: 10,
+          actions: [
+            IconButton(
+              onPressed: _openAddHabitOverlay,
+              icon: const Icon(Icons.add),
+            )
+          ],
         ),
         body: Container(
           decoration: const BoxDecoration(
@@ -134,13 +140,13 @@ class _HabitVpetState extends State<HabitVpet> {
                 child: PetFeeder(),
               ),
               const SizedBox(height: 30),
-              Expanded(flex: 5, child: HabitList(_myHabits)),
-              // OutlinedButton.icon(
-              //   onPressed: switchScreen,
-              //   style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
-              //   icon: const Icon(Icons.arrow_circle_right),
-              //   label: const Text('habits'),
-              // ),
+              Expanded(
+                flex: 5,
+                child: HabitList(
+                  habits: _myHabits,
+                  onRemoveHabit: _removeHabit,
+                ),
+              ),
             ],
           ),
         ),
