@@ -103,52 +103,48 @@ class _HabitVpetState extends State<HabitVpet> {
   }
 
   @override
-  Widget build(context) {
-    Widget screenWidget = StartScreen(switchScreen);
+  Widget build(BuildContext context) {
+    // Widget screenWidget = StartScreen(switchScreen);
 
-    return MaterialApp(
-      theme: ThemeData(useMaterial3: true),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('habit vpet'),
-          // toolbarHeight: 10,
-          actions: [
-            IconButton(
-              onPressed: _openAddHabitOverlay,
-              icon: const Icon(Icons.add),
-            )
-          ],
-        ),
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 19, 52, 5),
-                Color.fromARGB(255, 209, 243, 17),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(height: 20),
-              const StyledText('thine worm is a contented worm'),
-              const SizedBox(height: 20),
-              const Center(
-                child: PetFeeder(),
-              ),
-              const SizedBox(height: 30),
-              Expanded(
-                flex: 5,
-                child: HabitList(
-                  habits: _myHabits,
-                  onRemoveHabit: _removeHabit,
-                ),
-              ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('habit vpet'),
+        actions: [
+          IconButton(
+            onPressed: _openAddHabitOverlay,
+            icon: const Icon(Icons.add),
+          )
+        ],
+      ),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 19, 52, 5),
+              Color.fromARGB(255, 209, 243, 17),
             ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 20),
+            const StyledText('thine worm is a contented worm'),
+            const SizedBox(height: 20),
+            const Center(
+              child: PetFeeder(),
+            ),
+            const SizedBox(height: 30),
+            Expanded(
+              flex: 5,
+              child: HabitList(
+                habits: _myHabits,
+                onRemoveHabit: _removeHabit,
+              ),
+            ),
+          ],
         ),
       ),
     );
