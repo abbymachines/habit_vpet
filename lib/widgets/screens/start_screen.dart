@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_vpet/worm_status_message.dart';
+import 'package:habit_vpet/pet_status_message.dart';
 import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 
