@@ -5,6 +5,7 @@ import 'package:habit_vpet/widgets/screens/start_screen.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 import 'package:habit_vpet/widgets/new_habit.dart';
+import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 
 class HabitVpet extends StatefulWidget {
   const HabitVpet({super.key});
@@ -133,6 +134,9 @@ class _HabitVpetState extends State<HabitVpet> {
             const SizedBox(height: 20),
             const StyledText('thine worm is a contented worm'),
             const SizedBox(height: 20),
+            const Center(
+              child: FrameChanger(),
+            ),
             const Center(
               child: PetFeeder(),
             ),
