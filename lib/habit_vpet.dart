@@ -98,9 +98,25 @@ class _HabitVpetState extends State<HabitVpet> {
   }
 
   void _removeHabit(Habit habit) {
+    final habitIndex = _myHabits.indexOf(habit);
     setState(() {
       _myHabits.remove(habit);
     });
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: const Duration(seconds: 3),
+        content: const Text('Habit deleted.'),
+        action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            setState(() {
+              _myHabits.insert(habitIndex, habit);
+            });
+          },
+        ),
+      ),
+    );
   }
 
   @override
