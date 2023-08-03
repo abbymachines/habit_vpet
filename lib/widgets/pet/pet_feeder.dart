@@ -19,7 +19,7 @@ class _PetFeederState extends State<PetFeeder> {
   void feedPet() {
     setState(() {
       if (currentHealth >= 4) {
-        currentHealth = 0;
+        currentHealth = -1;
       }
       currentHealth++;
     });
