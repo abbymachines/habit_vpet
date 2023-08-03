@@ -107,6 +107,17 @@ class _HabitVpetState extends State<HabitVpet> {
   Widget build(BuildContext context) {
     // Widget screenWidget = StartScreen(switchScreen);
 
+    Widget habitContent = const Center(
+      child: Text('No habits found. Start adding some!'),
+    );
+
+    if (_myHabits.isNotEmpty) {
+      habitContent = HabitList(
+        habits: _myHabits,
+        onRemoveHabit: _removeHabit,
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('habit vpet'),
@@ -143,10 +154,7 @@ class _HabitVpetState extends State<HabitVpet> {
             const SizedBox(height: 30),
             Expanded(
               flex: 5,
-              child: HabitList(
-                habits: _myHabits,
-                onRemoveHabit: _removeHabit,
-              ),
+              child: habitContent,
             ),
           ],
         ),
