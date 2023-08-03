@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_vpet/habit_vpet.dart';
 
 var kColorScheme = ColorScheme.fromSeed(
-  seedColor: Color.fromARGB(255, 31, 32, 5),
+  seedColor: Color.fromARGB(255, 130, 134, 12),
 );
 
 void main() {
