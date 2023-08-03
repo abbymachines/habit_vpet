@@ -4,7 +4,7 @@ import 'package:habit_vpet/habit_vpet.dart';
 void main() {
   runApp(
     MaterialApp(
-      theme: ThemeData(useMaterial3: true),
+      theme: ThemeData().copyWith(useMaterial3: true),
       home: HabitVpet(),
     ),
   );

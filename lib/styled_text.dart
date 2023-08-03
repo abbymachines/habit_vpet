@@ -7,14 +7,17 @@ class StyledText extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return Text(
-      text,
-      style: const TextStyle(
-          color: Colors.black,
-          fontSize: 28,
-          fontStyle: FontStyle.italic,
-          backgroundColor: Colors.white),
-      textAlign: TextAlign.center,
+    return SizedBox(
+      width: 350,
+      child: Text(
+        text,
+        style: const TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontStyle: FontStyle.italic,
+            backgroundColor: Colors.white),
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
