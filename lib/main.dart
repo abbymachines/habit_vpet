@@ -19,7 +19,11 @@ void main() {
           color: kColorScheme.secondaryContainer,
           shape: const ContinuousRectangleBorder(
             borderRadius: BorderRadius.zero,
-            side: BorderSide(style: BorderStyle.solid),
+            side: BorderSide(
+              style: BorderStyle.solid,
+              color: Colors.black,
+              width: .3,
+            ),
           ),
           margin: const EdgeInsets.symmetric(
             horizontal: 0,
