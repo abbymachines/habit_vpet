@@ -26,6 +26,10 @@ void main() {
             vertical: 0,
           ),
         ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: kColorScheme.primaryContainer),
+        ),
       ),
       home: const HabitVpet(),
     ),

@@ -9,6 +9,7 @@ class HabitItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: habit.habitColor,
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,
@@ -19,7 +20,7 @@ class HabitItem extends StatelessWidget {
             Text(habit.title),
             const SizedBox(height: 4),
             Container(
-              color: habit.habitColor,
+              // color: habit.habitColor,
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
