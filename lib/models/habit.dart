@@ -32,9 +32,14 @@ class Habit {
 
 class HabitBucket {
   const HabitBucket({
+    required this.isComplete,
     required this.habits,
   });
 
+  HabitBucket.completedHabits(List<Habit> allHabits, this.isComplete)
+      : habits = allHabits.where((habit) => habit.isComplete == true).toList();
+
+  final String isComplete;
   final List<Habit> habits;
 
   int get totalHabits {
