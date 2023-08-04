@@ -30,6 +30,10 @@ void main() {
           style: ElevatedButton.styleFrom(
               backgroundColor: kColorScheme.primaryContainer),
         ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+              backgroundColor: kColorScheme.primaryContainer),
+        ),
       ),
       home: const HabitVpet(),
     ),

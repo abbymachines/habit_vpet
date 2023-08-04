@@ -34,7 +34,6 @@ class _PetFeederState extends State<PetFeeder> {
         const SizedBox(height: 20),
         OutlinedButton.icon(
           onPressed: feedPet,
-          style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
           icon: const Icon(Icons.fastfood),
           label: const Text('Feed Pet'),
         ),

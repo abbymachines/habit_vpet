@@ -33,7 +33,6 @@ class _FrameChangerState extends State<FrameChanger> {
         ),
         OutlinedButton.icon(
           onPressed: changeFrame,
-          style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
           icon: const Icon(Icons.movie),
           label: const Text('change frame'),
         ),
