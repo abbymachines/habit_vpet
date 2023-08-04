@@ -5,4 +5,9 @@ class HabitButton extends StatefulWidget {
   const HabitButton({required this.habit, super.key});
 
   final Habit habit;
+
+  @override
+  Widget build(context) {
+    return Text(habit.isComplete.toString());
+  }
 }

@@ -24,6 +24,7 @@ class _HabitVpetState extends State<HabitVpet> {
       frequency: 'every day',
       habitColor: Colors.red,
       isComplete: false,
+      isGoalMet: false,
     ),
     Habit(
       'you always have homework',
@@ -31,6 +32,7 @@ class _HabitVpetState extends State<HabitVpet> {
       frequency: 'every weekday',
       habitColor: Colors.yellow,
       isComplete: true,
+      isGoalMet: true,
     ),
     Habit(
       'dont forget to exercise ❣️',
@@ -38,6 +40,7 @@ class _HabitVpetState extends State<HabitVpet> {
       frequency: 'once a week',
       habitColor: Colors.blue,
       isComplete: false,
+      isGoalMet: true,
     ),
     Habit(
       'a filthy room is a filthy mind',
@@ -45,6 +48,7 @@ class _HabitVpetState extends State<HabitVpet> {
       frequency: 'twice a week',
       habitColor: Colors.blue,
       isComplete: true,
+      isGoalMet: true,
     ),
     Habit(
       'oink oink oink oink oink',
@@ -52,6 +56,7 @@ class _HabitVpetState extends State<HabitVpet> {
       frequency: 'every day',
       habitColor: Colors.red,
       isComplete: true,
+      isGoalMet: true,
     ),
     Habit(
       'dont get it stinky!',
@@ -59,6 +64,7 @@ class _HabitVpetState extends State<HabitVpet> {
       frequency: 'once every five days',
       habitColor: Colors.blue,
       isComplete: false,
+      isGoalMet: false,
     ),
     Habit(
       'mmmm ice cream so good',
@@ -66,6 +72,7 @@ class _HabitVpetState extends State<HabitVpet> {
       frequency: 'five times a week',
       habitColor: Colors.yellow,
       isComplete: false,
+      isGoalMet: false,
     ),
     Habit(
       'do it for piggy',
@@ -73,6 +80,7 @@ class _HabitVpetState extends State<HabitVpet> {
       frequency: 'every day',
       habitColor: Colors.red,
       isComplete: false,
+      isGoalMet: false,
     ),
   ];
   var activeScreen = 'start-screen';
