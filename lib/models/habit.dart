@@ -15,12 +15,14 @@ const habitColorHexes = {
 };
 
 class Habit {
-  Habit(this.description,
-      {required this.title,
-      required this.frequency,
-      required this.habitColor,
-      required this.isComplete})
-      : id = uuid.v4();
+  Habit(
+    this.description, {
+    required this.title,
+    required this.frequency,
+    required this.habitColor,
+    required this.isComplete,
+    required this.isGoalMet,
+  }) : id = uuid.v4();
 
   final String id;
   final String title;
@@ -28,6 +30,7 @@ class Habit {
   final String frequency;
   final Color habitColor;
   final bool isComplete;
+  final bool isGoalMet;
 }
 
 class HabitBucket {
