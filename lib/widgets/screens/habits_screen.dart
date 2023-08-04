@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_vpet/habit_button.dart';
+import 'package:habit_vpet/old_widget_named_habit_button.dart';
 import 'package:habit_vpet/data/questions.dart';
 
 class HabitsScreen extends StatefulWidget {

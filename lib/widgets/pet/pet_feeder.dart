@@ -1,8 +1,5 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
-
-final randomizer = Random();
 
 class PetFeeder extends StatefulWidget {
   const PetFeeder({super.key});
