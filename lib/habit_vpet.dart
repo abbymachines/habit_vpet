@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/pet_status_message.dart';
 import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
-// import 'package:habit_vpet/widgets/screens/start_screen.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 import 'package:habit_vpet/widgets/new_habit.dart';
@@ -129,8 +128,6 @@ class _HabitVpetState extends State<HabitVpet> {
 
   @override
   Widget build(BuildContext context) {
-    // Widget screenWidget = StartScreen(switchScreen);
-
     Widget habitContent = const Center(
       child: Text('No habits found. Start adding some!'),
     );
