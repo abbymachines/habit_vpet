@@ -31,3 +31,17 @@ class Habit {
   final Color habitColor;
   final bool isComplete;
 }
+
+class HabitBucket {
+  const HabitBucket({
+    required this.habits,
+  });
+
+  final List<Habit> habits;
+
+  int get totalHabits {
+    int totalHabits = habits.length;
+
+    return totalHabits;
+  }
+}
