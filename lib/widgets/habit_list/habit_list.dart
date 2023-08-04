@@ -17,8 +17,13 @@ class HabitList extends StatelessWidget {
     return ListView.builder(
       itemCount: habits.length,
       itemBuilder: (ctx, index) => Dismissible(
-        key: ValueKey(habits[index]),
+        key: ValueKey(
+          habits[index],
+        ),
         direction: DismissDirection.endToStart,
+        background: Container(
+          color: Theme.of(context).colorScheme.error,
+        ),
         onDismissed: (direction) {
           onRemoveHabit(habits[index]);
         },

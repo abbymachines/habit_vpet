@@ -17,7 +17,11 @@ class HabitItem extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Text(habit.title),
+            Text(
+              habit.title,
+              style: Theme.of(context).textTheme.titleLarge,
+              textAlign: TextAlign.justify,
+            ),
             const SizedBox(height: 4),
             Row(
               mainAxisSize: MainAxisSize.max,
