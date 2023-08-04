@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/models/habit.dart';
+import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
 
 class HabitItem extends StatelessWidget {
   const HabitItem(this.habit, {super.key});
@@ -29,6 +30,7 @@ class HabitItem extends StatelessWidget {
                 const Spacer(),
                 Text(habit.frequency),
                 const Spacer(),
+                const PetFeeder(),
                 Text('${habit.isComplete}')
               ],
             ),
