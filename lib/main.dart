@@ -32,7 +32,9 @@ void main() {
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
-              backgroundColor: kColorScheme.primaryContainer),
+            backgroundColor: kColorScheme.primaryContainer,
+            foregroundColor: kColorScheme.shadow,
+          ),
         ),
       ),
       home: const HabitVpet(),
