@@ -1,5 +1,12 @@
 # BLOG
 
+2023.8.4
+4: your worm is a happy worm
+3: thine worm is a contented worm
+2: i'm ok.
+1: would you still love me if i was your girlfriend 🥺
+0: 😵💩
+
 2023.8.1
 OK. I have gotten quite a lot done. I've added a worm images for a pet, which sit underneath a health bar than can reach up to 4 hears. There is a button that says "feed me". When you click on it, the bar increments one heart. Very rudimentary but it is the building block for what is to come.
 

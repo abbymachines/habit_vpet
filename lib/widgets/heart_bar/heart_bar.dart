@@ -25,7 +25,7 @@ class HeartBar extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         child: Text(
-          heartBarStates[health]!,
+          heartBarStates[health]! + health.toString(),
           style: const TextStyle(
             fontSize: 28,
           ),
