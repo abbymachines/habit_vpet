@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
+import 'package:habit_vpet/models/habit.dart';
 
 class PetFeeder extends StatefulWidget {
   const PetFeeder({super.key});
