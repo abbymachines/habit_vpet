@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/habit_vpet.dart';
+import 'package:habit_vpet/widgets/pet/frame_changer.dart';
+import 'package:habit_vpet/widgets/pet/pet.dart';
+import 'dart:async';
 
 var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 130, 134, 12),
 );
 
 void main() {
+  // const oneSec = Duration(seconds: 1);
+  // Timer.periodic(oneSec, (Timer t) => print('hi!'));
+
   runApp(
     MaterialApp(
       theme: ThemeData().copyWith(
