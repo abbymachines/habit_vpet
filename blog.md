@@ -1,13 +1,5 @@
 # BLOG
 
-2023.8.7
-what is left to be done???
-1. implement "health" state, which derives from "completedHabits" and "totalCompletedHabits." somehow track this state in your app and use it to set the arguments for the heart bar as well as the pet message
-2. make sure to create a Goals model
-3. implement simple animation for the pet. nothing fancy, but something.
-4. implement back end!! and implement being able to save habit data over time. this implies...
-5. editing the Habit (and maybe the Goal) model to track habits over time.
-
 2023.8.4
 4: your worm is a happy worm
 3: thine worm is a contented worm
