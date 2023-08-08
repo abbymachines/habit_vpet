@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:habit_vpet/pet_status_message.dart';
 import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
@@ -7,17 +8,18 @@ import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 import 'package:habit_vpet/widgets/new_habit.dart';
 import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
+import 'package:habit_vpet/providers/habits_provider.dart';
 
-class HabitVpet extends StatefulWidget {
+class HabitVpet extends ConsumerStatefulWidget {
   const HabitVpet({super.key});
 
   @override
-  State<HabitVpet> createState() {
+  ConsumerState<HabitVpet> createState() {
     return _HabitVpetState();
   }
 }
 
-class _HabitVpetState extends State<HabitVpet> {
+class _HabitVpetState extends ConsumerState<HabitVpet> {
   var activeScreen = 'start-screen';
 
   void switchScreen() {
@@ -64,13 +66,15 @@ class _HabitVpetState extends State<HabitVpet> {
 
   @override
   Widget build(BuildContext context) {
+    final myHabits = ref.watch(habitsProvider);
+
     Widget habitContent = const Center(
       child: Text('No habits found. Start adding some!'),
     );
 
     if (dummyHabits.isNotEmpty) {
       habitContent = HabitList(
-        habits: dummyHabits,
+        habits: myHabits,
         onRemoveHabit: _removeHabit,
       );
     }
