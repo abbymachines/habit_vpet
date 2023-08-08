@@ -19,8 +19,11 @@ class HabitButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     String labelText = false.toString();
+    final completedHabits = ref.watch(completedHabitsProvider);
 
-    return OutlinedButton.icon(
+    final isComplete = completedHabits.contains(attachedHabit);
+
+    return IconButton(
       onPressed: () {
         final wasCompleted = ref
             .read(completedHabitsProvider.notifier)
@@ -35,10 +38,7 @@ class HabitButton extends ConsumerWidget {
           ),
         );
       },
-      icon: const Icon(Icons.copyright),
-      label: Text(
-        labelText,
-      ),
+      icon: Icon(isComplete ? Icons.check_box : Icons.check_box_outline_blank),
     );
   }
 }
