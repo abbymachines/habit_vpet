@@ -23,7 +23,7 @@ class HeartBar extends StatelessWidget {
       width: 300,
       height: 40,
       child: Container(
-        alignment: Alignment.center,
+        alignment: Alignment.topLeft,
         child: Text(
           heartBarStates[health]! + health.toString(),
           style: const TextStyle(
