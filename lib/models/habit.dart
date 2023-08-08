@@ -33,24 +33,6 @@ class Habit {
   // final bool isGoalMet; // implement later
 }
 
-class HabitBucket {
-  const HabitBucket({
-    // required this.isComplete,
-    required this.habits,
-  });
-
-  HabitBucket.completedHabits(List<Habit> allHabits)
-      : habits = allHabits.where((habit) => habit.isComplete == true).toList();
-
-  // final String isComplete;
-  final List<Habit> habits;
-
-  int get totalHabits {
-    int totalHabits = habits.length;
-
-    return totalHabits;
-  }
-
   //  i got stuck here on 2023.8.4. i'm trying
   // to track state somehow. i want...
   // total completed habits (all habits where isComplete == true)
@@ -58,4 +40,3 @@ class HabitBucket {
   // health =  ((totalCompletedHabits / totalHabits) * 4)
   // the 'health value will then be passed into the heartbar, to determine how many hearts are shown.
   // that should subsequently change the message displayed above the hearts (and this message should be its own widget)
-}
