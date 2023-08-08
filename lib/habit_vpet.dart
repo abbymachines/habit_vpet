@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:habit_vpet/pet_status_message.dart';
 import 'package:habit_vpet/providers/completed_habits_provider.dart';
+import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
 import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
@@ -113,6 +114,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
             Text('there are ${myHabits.length} total habits'),
             Text('there are ${myCompletedHabits.length} completed habits'),
             Text('current Habit Health is $health'),
+            HeartBar(health),
             const SizedBox(height: 5),
             const Center(
               child: PetFeeder(),

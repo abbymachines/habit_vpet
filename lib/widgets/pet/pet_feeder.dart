@@ -25,16 +25,16 @@ class _PetFeederState extends State<PetFeeder> {
 
   @override
   Widget build(context) {
-    return Column(
+    return const Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        HeartBar(currentHealth),
-        const SizedBox(height: 20),
-        OutlinedButton.icon(
-          onPressed: feedPet,
-          icon: const Icon(Icons.fastfood),
-          label: const Text('Feed Pet'),
-        ),
+        // HeartBar(currentHealth),
+        SizedBox(height: 20),
+        // OutlinedButton.icon(
+        //   onPressed: feedPet,
+        //   icon: const Icon(Icons.fastfood),
+        //   label: const Text('Feed Pet'),
+        // ),
       ],
     );
   }
