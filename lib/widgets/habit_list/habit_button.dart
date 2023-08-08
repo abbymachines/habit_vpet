@@ -24,6 +24,7 @@ class HabitButton extends ConsumerWidget {
     final isComplete = completedHabits.contains(attachedHabit);
 
     return IconButton(
+      iconSize: 60,
       onPressed: () {
         final wasCompleted = ref
             .read(completedHabitsProvider.notifier)
