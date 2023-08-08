@@ -34,6 +34,13 @@ class HabitItem extends StatelessWidget {
                 HabitCompleter(
                   habit: habit,
                 ),
+                // OutlinedButton.icon(
+                //   onPressed: () {},
+                //   icon: const Icon(Icons.copyright),
+                //   label: Text(
+                //     habit.isComplete.toString(),
+                //   ),
+                // ),
               ],
             ),
           ],
