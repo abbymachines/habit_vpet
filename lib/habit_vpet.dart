@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:habit_vpet/pet_status_message.dart';
+import 'package:habit_vpet/providers/completed_habits_provider.dart';
 import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
@@ -79,6 +80,8 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
       );
     }
 
+    final completedHabits = ref.watch(completedHabitsProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('habit vpet'),
@@ -106,7 +109,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
             const SizedBox(height: 20),
             const PetStatusMessage('thine worm is a contented worm'),
             const SizedBox(height: 20),
-            Text('there are ${dummyHabits.length} total habits'),
+            Text('there are ${completedHabits.length} completed habits'),
             const SizedBox(height: 5),
             const Center(
               child: PetFeeder(),
