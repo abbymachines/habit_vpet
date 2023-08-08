@@ -81,6 +81,8 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
       );
     }
 
+    int health = ((myCompletedHabits.length / myHabits.length) * 4).round();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('habit vpet'),
@@ -110,6 +112,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
             const SizedBox(height: 20),
             Text('there are ${myHabits.length} total habits'),
             Text('there are ${myCompletedHabits.length} completed habits'),
+            Text('current Habit Health is $health'),
             const SizedBox(height: 5),
             const Center(
               child: PetFeeder(),
