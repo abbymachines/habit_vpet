@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/models/habit.dart';
+import 'package:habit_vpet/widgets/habit_list/habit_button.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_completer.dart';
 
 class HabitItem extends StatelessWidget {
@@ -30,9 +31,14 @@ class HabitItem extends StatelessWidget {
                 const Spacer(),
                 Text(habit.frequency),
                 const Spacer(),
-                HabitCompleter(
-                  habit: habit,
+                HabitButton(
+                  attachedHabit: habit,
+                  // onCompleteHabit: onCompleteHabit,
+                  // completionStatus: completionStatus,
                 ),
+                // HabitCompleter(
+                //   habit: habit,
+                // ),
               ],
             ),
           ],

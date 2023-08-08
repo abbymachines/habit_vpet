@@ -109,6 +109,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
             const PetStatusMessage('thine worm is a contented worm'),
             const SizedBox(height: 20),
             Text('there are ${myHabits.length} total habits'),
+            Text('there are ${myCompletedHabits.length} completed habits'),
             const SizedBox(height: 5),
             const Center(
               child: PetFeeder(),
