@@ -51,18 +51,7 @@ class HabitBucket {
     return totalHabits;
   }
 
-  // int get totalCompletedHabits {
-  //   var totalCompletedHabits =
-  //       HabitBucket.completedHabits(habits).length().toString();
-  // }
-
-  // int get health {
-  //   var totalCompletedHabits = HabitBucket.completedHabits(habits);
-  //   int num = totalCompletedHabits.length();
-
-  //   health = totalCompletedHabits;
-  // }
-  // ⚠️ i got stuck here on 2023.8.4. i'm trying
+  //  i got stuck here on 2023.8.4. i'm trying
   // to track state somehow. i want...
   // total completed habits (all habits where isComplete == true)
   // total habits (the amount of habits there are in total)
