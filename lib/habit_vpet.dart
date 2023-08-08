@@ -22,6 +22,9 @@ class HabitVpet extends ConsumerStatefulWidget {
 class _HabitVpetState extends ConsumerState<HabitVpet> {
   var activeScreen = 'start-screen';
 
+  Iterable<Habit> completedHabits =
+      dummyHabits.where((habit) => habit.isComplete);
+
   void switchScreen() {
     setState(() {
       activeScreen = 'habits-screen';
@@ -39,6 +42,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   void _addHabit(Habit habit) {
     setState(() {
       dummyHabits.add(habit);
+      completedHabits = dummyHabits.where((habit) => habit.isComplete);
     });
   }
 
@@ -46,6 +50,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
     final habitIndex = dummyHabits.indexOf(habit);
     setState(() {
       dummyHabits.remove(habit);
+      completedHabits = dummyHabits.where((habit) => habit.isComplete);
     });
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
@@ -79,6 +84,9 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
       );
     }
 
+    // Iterable<Habit> completedHabits =
+    //     dummyHabits.where((habit) => habit.isComplete);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('habit vpet'),
@@ -106,7 +114,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
             const SizedBox(height: 20),
             const PetStatusMessage('thine worm is a contented worm'),
             const SizedBox(height: 20),
-            Text('there are ${dummyHabits.length} total habits'),
+            Text('there are ${completedHabits.length} completed habits'),
             const SizedBox(height: 5),
             const Center(
               child: PetFeeder(),
