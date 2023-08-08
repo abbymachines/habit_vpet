@@ -7,14 +7,10 @@ import 'package:habit_vpet/providers/completed_habits_provider.dart';
 class HabitButton extends ConsumerWidget {
   const HabitButton({
     required this.attachedHabit,
-    // required this.onCompleteHabit,
-    // required this.completionStatus,
     super.key,
   });
 
   final Habit attachedHabit;
-  // final Function() onCompleteHabit;
-  // final bool completionStatus;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
