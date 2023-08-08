@@ -8,7 +8,7 @@ final dummyHabits = [
     frequency: 'every day',
     habitColor: Colors.red,
     isComplete: false,
-    isGoalMet: false,
+    // isGoalMet: false,
   ),
   Habit(
     'you always have homework',
@@ -16,7 +16,7 @@ final dummyHabits = [
     frequency: 'every weekday',
     habitColor: Colors.yellow,
     isComplete: true,
-    isGoalMet: true,
+    // isGoalMet: true,
   ),
   Habit(
     'dont forget to exercise ❣️',
@@ -24,7 +24,7 @@ final dummyHabits = [
     frequency: 'once a week',
     habitColor: Colors.blue,
     isComplete: false,
-    isGoalMet: true,
+    // isGoalMet: true,
   ),
   Habit(
     'a filthy room is a filthy mind',
@@ -32,7 +32,7 @@ final dummyHabits = [
     frequency: 'twice a week',
     habitColor: Colors.blue,
     isComplete: true,
-    isGoalMet: true,
+    // isGoalMet: true,
   ),
   Habit(
     'oink oink oink oink oink',
@@ -40,7 +40,7 @@ final dummyHabits = [
     frequency: 'every day',
     habitColor: Colors.red,
     isComplete: true,
-    isGoalMet: true,
+    // isGoalMet: true,
   ),
   Habit(
     'dont get it stinky!',
@@ -48,7 +48,7 @@ final dummyHabits = [
     frequency: 'once every five days',
     habitColor: Colors.blue,
     isComplete: false,
-    isGoalMet: false,
+    // isGoalMet: false,
   ),
   Habit(
     'mmmm ice cream so good',
@@ -56,7 +56,7 @@ final dummyHabits = [
     frequency: 'five times a week',
     habitColor: Colors.yellow,
     isComplete: false,
-    isGoalMet: false,
+    // isGoalMet: false,
   ),
   Habit(
     'do it for piggy',
@@ -64,6 +64,6 @@ final dummyHabits = [
     frequency: 'every day',
     habitColor: Colors.red,
     isComplete: false,
-    isGoalMet: false,
+    // isGoalMet: false,
   ),
 ];

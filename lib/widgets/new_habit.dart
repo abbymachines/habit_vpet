@@ -48,12 +48,14 @@ class _NewHabitState extends State<NewHabit> {
     }
 
     widget.onAddHabit(
-      Habit(_descriptionController.text,
-          title: _titleController.text,
-          frequency: _frequencyController.text,
-          habitColor: Colors.red,
-          isComplete: _isComplete,
-          isGoalMet: _isGoalMet),
+      Habit(
+        _descriptionController.text,
+        title: _titleController.text,
+        frequency: _frequencyController.text,
+        habitColor: Colors.red,
+        isComplete: _isComplete,
+        // isGoalMet: _isGoalMet
+      ),
     );
     Navigator.pop(context);
   }
