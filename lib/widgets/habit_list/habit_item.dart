@@ -30,17 +30,9 @@ class HabitItem extends StatelessWidget {
                 const Spacer(),
                 Text(habit.frequency),
                 const Spacer(),
-                Text('${habit.isComplete}'),
                 HabitCompleter(
                   habit: habit,
                 ),
-                // OutlinedButton.icon(
-                //   onPressed: () {},
-                //   icon: const Icon(Icons.copyright),
-                //   label: Text(
-                //     habit.isComplete.toString(),
-                //   ),
-                // ),
               ],
             ),
           ],
