@@ -33,7 +33,7 @@ class _FrameChangerState extends State<FrameChanger> {
         ),
         OutlinedButton(
           onPressed: _changeFrame,
-          child: const Text('change worm frame'),
+          child: const Text('pet the worm'),
         ),
       ],
     );

@@ -17,6 +17,7 @@ class PetStatusMessage extends StatelessWidget {
   Widget build(context) {
     return SizedBox(
       width: 350,
+      height: 50,
       child: Text(
         statusMessages[health]!,
         style: const TextStyle(
