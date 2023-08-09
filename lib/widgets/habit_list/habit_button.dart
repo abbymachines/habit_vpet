@@ -29,9 +29,7 @@ class HabitButton extends ConsumerWidget {
         ScaffoldMessenger.of(context).clearSnackBars();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(wasCompleted
-                ? 'Habit completed ($labelText)'
-                : 'Habit un-completed ($labelText)'),
+            content: Text(wasCompleted ? 'yummy 😋' : 'oh...'),
           ),
         );
       },

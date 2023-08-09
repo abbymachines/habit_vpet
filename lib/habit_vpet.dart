@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:habit_vpet/pet_status_message.dart';
 import 'package:habit_vpet/providers/completed_habits_provider.dart';
 import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
-import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
+// import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 import 'package:habit_vpet/widgets/new_habit.dart';
