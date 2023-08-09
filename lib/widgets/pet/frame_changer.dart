@@ -27,13 +27,20 @@ class _FrameChangerState extends State<FrameChanger> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        SizedBox(
+          height: 50,
+          width: 70,
+          child: OutlinedButton(
+            onPressed: _changeFrame,
+            child: const Text(
+              textAlign: TextAlign.center,
+              '🍓',
+            ),
+          ),
+        ),
         Pet(currentPetFrame),
         const SizedBox(
           height: 20,
-        ),
-        OutlinedButton(
-          onPressed: _changeFrame,
-          child: const Text('pet the worm'),
         ),
       ],
     );
