@@ -109,7 +109,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 20),
-            const PetStatusMessage('thine worm is a contented worm'),
+            PetStatusMessage(health),
             const SizedBox(height: 20),
             Text('there are ${myHabits.length} total habits'),
             Text('there are ${myCompletedHabits.length} completed habits'),
