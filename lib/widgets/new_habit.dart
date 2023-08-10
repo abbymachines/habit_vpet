@@ -20,7 +20,7 @@ class _NewHabitState extends State<NewHabit> {
   final _isComplete = false;
   final _isGoalMet = false;
 
-  void _submitHabitData() {
+  void _saveHabit() {
     if (_titleController.text.trim().isEmpty ||
         _frequencyController.text.trim().isEmpty) {
       // || _habitColorController.cpo.trim().isEmpty) {
@@ -98,7 +98,7 @@ class _NewHabitState extends State<NewHabit> {
                 child: const Text('Cancel'),
               ),
               ElevatedButton(
-                onPressed: _submitHabitData,
+                onPressed: _saveHabit,
                 child: const Text('Save Habit'),
               ),
             ],
