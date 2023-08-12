@@ -9,7 +9,7 @@ class NewHabit extends StatefulWidget {
   final void Function(Habit habit) onAddHabit;
 
   @override
-  State<StatefulWidget> createState() {
+  State<NewHabit> createState() {
     return _NewHabitState();
   }
 }
