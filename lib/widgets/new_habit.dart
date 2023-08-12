@@ -22,10 +22,6 @@ class _NewHabitState extends State<NewHabit> {
   final _isComplete = false;
   // final _isGoalMet = false;
 
-  void _toggleCompletion() {
-    // set state for button here maybe?
-  }
-
   void _submitHabitData() {
     if (_titleController.text.trim().isEmpty ||
         _frequencyController.text.trim().isEmpty) {
