@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/models/habit.dart';
+import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
@@ -56,6 +57,23 @@ class _NewHabitState extends State<NewHabit> {
       ),
     );
     Navigator.pop(context);
+
+    final url =
+        Uri.https('habit-vpet-default-rtdb.firebaseio.com', 'habit-vpet.json');
+    http.post(
+      url,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: json.encode(
+        {
+          'title': 'this is a second test.',
+          'description':
+              'this station is posting to the backend from new_habit.dart.',
+          'frequency': 'just right now',
+        },
+      ),
+    );
   }
 
   @override
