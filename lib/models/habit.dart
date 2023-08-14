@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:uuid/uuid.dart';
+// import 'package:uuid/uuid.dart';
 
-const uuid = Uuid();
+// const uuid = Uuid();
 
 enum HabitColor { red, orange, yellow, green, blue, purple }
 
@@ -21,8 +21,10 @@ class Habit {
     required this.frequency,
     required this.habitColor,
     required this.isComplete,
+    required this.id,
     // required this.isGoalMet, // implement later
-  }) : id = uuid.v4();
+  });
+  // : id = uuid.v4();
 
   final String id;
   final String title;
