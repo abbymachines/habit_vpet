@@ -13,9 +13,12 @@ class CompletedHabitsNotifier extends StateNotifier<List<Habit>> {
           .where((h) => h.id != habit.id)
           .toList(); // removes it from the list?
       return false; // toggles habit to incomplete
+      // put a patch request here. probably use an
+      // async/await
     } else {
       state = [...state, habit]; // adds it to the list?
       return true; // toggles habit to complete?
+      // likewise put a patch request here as well
     }
   }
 }
