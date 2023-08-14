@@ -67,10 +67,11 @@ class _NewHabitState extends State<NewHabit> {
       },
       body: json.encode(
         {
-          'title': 'this is a second test.',
-          'description':
-              'this station is posting to the backend from new_habit.dart.',
-          'frequency': 'just right now',
+          'title': _titleController.text,
+          'description': _descriptionController.text,
+          'frequency': _frequencyController.text,
+          'habit color': Colors.red.toString(),
+          'isComplete': _isComplete,
         },
       ),
     );
