@@ -9,11 +9,13 @@ class CompletedHabitsNotifier extends StateNotifier<List<Habit>> {
     final habitIsComplete = state.contains(habit);
 
     if (habitIsComplete) {
-      state = state.where((h) => h.id != habit.id).toList();
-      return false;
+      state = state
+          .where((h) => h.id != habit.id)
+          .toList(); // removes it from the list?
+      return false; // toggles habit to incomplete
     } else {
-      state = [...state, habit];
-      return true;
+      state = [...state, habit]; // adds it to the list?
+      return true; // toggles habit to complete?
     }
   }
 }

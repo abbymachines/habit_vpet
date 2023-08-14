@@ -81,6 +81,9 @@ class _NewHabitState extends State<NewHabit> {
           TextField(
             controller: _frequencyController,
             maxLength: 50,
+            decoration: const InputDecoration(
+              label: Text('frequency'),
+            ),
           ),
           const Row(
             children: [
