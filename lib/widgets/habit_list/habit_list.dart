@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_item.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
+import 'package:habit_vpet/widgets/new_habit.dart';
 import 'package:http/http.dart' as http;
 
 class HabitList extends StatefulWidget {
@@ -22,6 +23,7 @@ class HabitList extends StatefulWidget {
 
 class _HabitListState extends State<HabitList> {
   List<Habit> _habitItems = [];
+  // int _habitsLength = 0;
   var _isLoading = true;
   String? _error;
 
@@ -53,21 +55,36 @@ class _HabitListState extends State<HabitList> {
 
       final Map<String, dynamic> listData = json.decode(response.body);
       final List<Habit> loadedItems = [];
+      int _habitsLength = 0;
+
       for (final item in listData.entries) {
         // final category = categories.entries.firstWhere((catItem) => catItem.value.title == item.value['category'],).value;
+        print('response happening');
+
+        // loadedHabit = Habit(
+        //   item.value['description'],
+        //   id: item.key,
+        //   title: item.value['title'],
+        //   frequency: item.value['frequency'],
+        //   habitColor: item.value['habit color'],
+        //   isComplete: item.value['isComplete'],
+        // );
 
         loadedItems.add(
-          Habit(item.value['description'],
-              id: item.key,
-              title: item.value['title'],
-              frequency: item.value['frequency'],
-              habitColor: item.value['habit color'],
-              isComplete: item.value['isComplete']),
+          Habit(
+            item.value['description'],
+            title: item.value['title'],
+            frequency: item.value['frequency'],
+            habitColor: item.value['habitColor'],
+            isComplete: item.value['isComplete'],
+            id: item.key,
+          ),
         );
       }
       setState(() {
         _habitItems = loadedItems;
         _isLoading = false;
+        _habitsLength = _habitItems.length;
       });
     } catch (error) {
       setState(() {
@@ -76,14 +93,35 @@ class _HabitListState extends State<HabitList> {
     }
   }
 
+  // void _addItem() async {
+  //   final newItem = await Navigator.of(context).push<Habit>(MaterialPageRoute(builder: (ctx) => const NewHabit(onAddHabit: onAddHabit)))
+  // }
+
+  _addHabit() async {
+    final newHabit = await Navigator.of(context).push<Habit>(
+      MaterialPageRoute(
+        builder: (ctx) => const NewHabit(),
+      ),
+    );
+
+    if (newHabit == null) {
+      return;
+    }
+
+    setState(() {
+      _habitItems.add(newHabit);
+    });
+  }
+
   void _removeItem(Habit item) async {
     final index = _habitItems.indexOf(item);
     setState(() {
       _habitItems.remove(item);
     });
 
-    final url =
-        Uri.https('habit-vpet-default-rtdb.firebaseio.com/${item.id}.json');
+    final url = Uri.https(
+        'habit-vpet-default-rtdb.firebaseio.com/${item.id}.json',
+        'habit-list/${item.id}.json');
 
     final response = await http.delete(url);
 
@@ -120,9 +158,8 @@ class _HabitListState extends State<HabitList> {
           onDismissed: (direction) {
             _removeItem(_habitItems[index]);
           },
-          child: HabitItem(
-            _habitItems[index],
-          ),
+          // child: _habitItems[index],
+          child: HabitItem(_habitItems[index]),
         ),
       );
     }
@@ -133,7 +170,18 @@ class _HabitListState extends State<HabitList> {
       );
     }
 
-    return content;
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('your habits'),
+        actions: [
+          IconButton(
+            onPressed: _addHabit,
+            icon: const Icon(Icons.add),
+          ),
+        ],
+      ),
+      body: content,
+    );
   }
 
   // @override
