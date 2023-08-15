@@ -26,7 +26,7 @@ class _NewHabitState extends State<NewHabit> {
   final _isComplete = false;
   // final _isGoalMet = false;
 
-  void _submitHabitData() {
+  void _submitHabitData() async {
     if (_titleController.text.trim().isEmpty ||
         _frequencyController.text.trim().isEmpty) {
       // || _habitColorController.cpo.trim().isEmpty) {
@@ -66,7 +66,7 @@ class _NewHabitState extends State<NewHabit> {
 
     final url =
         Uri.https('habit-vpet-default-rtdb.firebaseio.com', 'habit-vpet.json');
-    http.post(
+    final response = await http.post(
       url,
       headers: {
         'Content-Type': 'application/json',
@@ -81,6 +81,15 @@ class _NewHabitState extends State<NewHabit> {
         },
       ),
     );
+
+    print(response.body);
+    print(response.statusCode);
+
+    if (!context.mounted) {
+      return;
+    }
+
+    Navigator.of(context).pop();
   }
 
   @override
