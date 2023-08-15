@@ -3,7 +3,6 @@ import 'package:habit_vpet/models/habit.dart';
 
 final dummyHabits = [
   Habit(
-    id: '0',
     'its like going on a walk but with your cat',
     title: 'Walk the cat',
     frequency: 'every day',
@@ -12,7 +11,6 @@ final dummyHabits = [
     // isGoalMet: false,
   ),
   Habit(
-    id: '1',
     'you always have homework',
     title: 'Homework',
     frequency: 'every weekday',
@@ -21,7 +19,6 @@ final dummyHabits = [
     // isGoalMet: true,
   ),
   Habit(
-    id: '2',
     'dont forget to exercise ❣️',
     title: 'Exercise',
     frequency: 'once a week',
@@ -30,7 +27,6 @@ final dummyHabits = [
     // isGoalMet: true,
   ),
   Habit(
-    id: '3',
     'a filthy room is a filthy mind',
     title: 'Clean your room',
     frequency: 'twice a week',
@@ -39,7 +35,6 @@ final dummyHabits = [
     // isGoalMet: true,
   ),
   Habit(
-    id: '4',
     'oink oink oink oink oink',
     title: 'Play with Piggy :)',
     frequency: 'every day',
@@ -48,7 +43,6 @@ final dummyHabits = [
     // isGoalMet: true,
   ),
   Habit(
-    id: '5',
     'dont get it stinky!',
     title: 'Take out trash',
     frequency: 'once every five days',
@@ -57,7 +51,6 @@ final dummyHabits = [
     // isGoalMet: false,
   ),
   Habit(
-    id: '6',
     'mmmm ice cream so good',
     title: 'Stream',
     frequency: 'five times a week',
@@ -66,7 +59,6 @@ final dummyHabits = [
     // isGoalMet: false,
   ),
   Habit(
-    id: '7',
     'do it for piggy',
     title: 'Clean litterbox',
     frequency: 'every day',

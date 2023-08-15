@@ -3,9 +3,6 @@ import 'package:habit_vpet/models/habit.dart';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:uuid/uuid.dart';
-
-const uuid = Uuid();
 
 class NewHabit extends StatefulWidget {
   const NewHabit({super.key, required this.onAddHabit});
@@ -50,15 +47,12 @@ class _NewHabitState extends State<NewHabit> {
     }
 
     widget.onAddHabit(
-      // const uuid = uuid4.v4();
-
       Habit(
         _descriptionController.text,
         title: _titleController.text,
         frequency: _frequencyController.text,
         habitColor: Colors.red,
         isComplete: _isComplete,
-        id: uuid.v4(),
         // isGoalMet: _isGoalMet
       ),
     );

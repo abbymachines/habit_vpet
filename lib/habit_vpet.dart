@@ -48,27 +48,27 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
     });
   }
 
-  // void _removeHabit(Habit habit) {
-  //   final habitIndex = dummyHabits.indexOf(habit);
-  //   setState(() {
-  //     dummyHabits.remove(habit);
-  //   });
-  //   ScaffoldMessenger.of(context).clearSnackBars();
-  //   ScaffoldMessenger.of(context).showSnackBar(
-  //     SnackBar(
-  //       duration: const Duration(seconds: 3),
-  //       content: const Text('Habit deleted.'),
-  //       action: SnackBarAction(
-  //         label: 'Undo',
-  //         onPressed: () {
-  //           setState(() {
-  //             dummyHabits.insert(habitIndex, habit);
-  //           });
-  //         },
-  //       ),
-  //     ),
-  //   );
-  // }
+  void _removeHabit(Habit habit) {
+    final habitIndex = dummyHabits.indexOf(habit);
+    setState(() {
+      dummyHabits.remove(habit);
+    });
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: const Duration(seconds: 3),
+        content: const Text('Habit deleted.'),
+        action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            setState(() {
+              dummyHabits.insert(habitIndex, habit);
+            });
+          },
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,10 +80,10 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
     );
 
     if (dummyHabits.isNotEmpty) {
-      habitContent = const HabitList(
-          // habits: myHabits,
-          // onRemoveHabit: _removeHabit,
-          );
+      habitContent = HabitList(
+        habits: myHabits,
+        onRemoveHabit: _removeHabit,
+      );
     }
 
     int health = ((myCompletedHabits.length / myHabits.length) * 4).round();
