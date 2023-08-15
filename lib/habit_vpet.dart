@@ -37,15 +37,16 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
     showModalBottomSheet(
       isScrollControlled: true,
       context: context,
-      builder: (ctx) => const NewHabit(),
+      builder: (ctx) => NewHabit(onAddHabit: _addHabit),
     );
   }
 
-  // void _addHabit(Habit habit) {
-  //   setState(() {
-  //     .add(habit);
-  //     // _isSending = true;
-  //   });
+  void _addHabit(Habit habit) {
+    setState(() {
+      dummyHabits.add(habit);
+      // _isSending = true;
+    });
+  }
 
   // void _removeHabit(Habit habit) {
   //   final habitIndex = dummyHabits.indexOf(habit);
@@ -85,7 +86,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
           );
     }
 
-    int health = ((myCompletedHabits.length / 5) * 4).round();
+    int health = ((myCompletedHabits.length / myHabits.length) * 4).round();
 
     return Scaffold(
       appBar: AppBar(

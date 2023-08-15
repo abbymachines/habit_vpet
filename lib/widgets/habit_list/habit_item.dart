@@ -3,14 +3,9 @@ import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_button.dart';
 
 class HabitItem extends StatelessWidget {
-  const HabitItem(
-    this.habit, {
-    // required this.id,
-    super.key,
-  });
+  const HabitItem(this.habit, {super.key});
 
   final Habit habit;
-  // final String id;
 
   @override
   Widget build(BuildContext context) {
