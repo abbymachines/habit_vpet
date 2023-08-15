@@ -46,6 +46,25 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
       dummyHabits.add(habit);
       // _isSending = true;
     });
+
+    final url =
+        Uri.https('habit-vpet-default-rtdb.firebaseio.com', 'habit-vpet.json');
+    http.post(
+      url,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: json.encode(
+        {
+          'title': 'this is a test.',
+          'description':
+              'this station is conducting a test of the emergency broadcast system.',
+          'frequency': 'this is only a test',
+        },
+      ),
+    );
+
+    // final Map<String, dynamic> resData = json.decode(response.body);
   }
 
   void _removeHabit(Habit habit) {

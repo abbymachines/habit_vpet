@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/models/habit.dart';
-import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
@@ -56,39 +55,7 @@ class _NewHabitState extends State<NewHabit> {
         // isGoalMet: _isGoalMet
       ),
     );
-    // Navigator.pop(context);
-
-    final url =
-        Uri.https('habit-vpet-default-rtdb.firebaseio.com', 'habit-vpet.json');
-    final response = await http.post(
-      url,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: json.encode(
-        {
-          'title': _titleController.text,
-          'description': _descriptionController.text,
-          'frequency': _frequencyController.text,
-          'habit color': Colors.red.toString(),
-          'isComplete': _isComplete,
-        },
-      ),
-    );
-
-    print('------------');
-    print('the response body:');
-    print(response.body);
-    print('------------');
-    print('the response status code:');
-    print(response.statusCode);
-    print('------------');
-
-    if (!context.mounted) {
-      return;
-    }
-
-    Navigator.of(context).pop();
+    Navigator.pop(context);
   }
 
   @override
