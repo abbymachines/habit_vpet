@@ -1,8 +1,5 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:http/http.dart' as http;
 
 import 'package:habit_vpet/pet_status_message.dart';
 import 'package:habit_vpet/providers/completed_habits_provider.dart';
@@ -44,27 +41,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   void _addHabit(Habit habit) {
     setState(() {
       dummyHabits.add(habit);
-      // _isSending = true;
     });
-
-    final url =
-        Uri.https('habit-vpet-default-rtdb.firebaseio.com', 'habit-vpet.json');
-    http.post(
-      url,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: json.encode(
-        {
-          'title': 'this is a test.',
-          'description':
-              'this station is conducting a test of the emergency broadcast system.',
-          'frequency': 'this is only a test',
-        },
-      ),
-    );
-
-    // final Map<String, dynamic> resData = json.decode(response.body);
   }
 
   void _removeHabit(Habit habit) {
