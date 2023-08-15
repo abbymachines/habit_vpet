@@ -62,7 +62,7 @@ class _NewHabitState extends State<NewHabit> {
         // isGoalMet: _isGoalMet
       ),
     );
-    Navigator.pop(context);
+    // Navigator.pop(context);
 
     final url =
         Uri.https('habit-vpet-default-rtdb.firebaseio.com', 'habit-vpet.json');
@@ -82,8 +82,13 @@ class _NewHabitState extends State<NewHabit> {
       ),
     );
 
+    print('------------');
+    print('the response body:');
     print(response.body);
+    print('------------');
+    print('the response status code:');
     print(response.statusCode);
+    print('------------');
 
     if (!context.mounted) {
       return;
