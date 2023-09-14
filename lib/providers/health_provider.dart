@@ -1,8 +1,7 @@
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// import 'package:habit_vpet/providers/habits_provider.dart';
-// import 'package:habit_vpet/providers/completed_habits_provider.dart';
+// class HealthNotifier extends StateNotifier<int> {
+//   // HealthNotifier() : super
+// }
 
-// final healthProvider = Provider((ref) => {
-//   return habitsProvider.length()
-// },)
+// final healthProvider = StateNotifierProvider<HealthNotifier, 
