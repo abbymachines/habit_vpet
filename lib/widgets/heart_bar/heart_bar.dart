@@ -24,11 +24,21 @@ class HeartBar extends StatelessWidget {
       height: 40,
       child: Container(
         alignment: Alignment.topLeft,
-        child: Text(
-          heartBarStates[health]!,
-          style: const TextStyle(
-            fontSize: 28,
-          ),
+        child: Row(
+          children: [
+            Text(
+              heartBarStates[health]!,
+              style: const TextStyle(
+                fontSize: 28,
+              ),
+            ),
+            Text(
+              health.toString(),
+              style: const TextStyle(
+                fontSize: 28,
+              ),
+            )
+          ],
         ),
       ),
     );
