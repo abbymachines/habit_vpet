@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const fullHeart = '💯';
+const fullHeart = '❤️';
 const halfHeart = '❤️‍🩹';
 const emptyHeart = '♡';
 

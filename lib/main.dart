@@ -14,49 +14,49 @@ var kColorScheme = ColorScheme.fromSeed(
 // course, you now need to finish lesson 182.
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]).then((fn) {
-    runApp(
-      ProviderScope(
-        child: MaterialApp(
-          theme: ThemeData().copyWith(
-            useMaterial3: true,
-            colorScheme: kColorScheme,
-            appBarTheme: const AppBarTheme().copyWith(
-              backgroundColor: kColorScheme.onPrimaryContainer,
-              foregroundColor: kColorScheme.primaryContainer,
-            ),
-            cardTheme: const CardTheme().copyWith(
-              color: kColorScheme.secondaryContainer,
-              shape: const ContinuousRectangleBorder(
-                borderRadius: BorderRadius.zero,
-                side: BorderSide(
-                  style: BorderStyle.solid,
-                  color: Colors.black,
-                  width: .3,
-                ),
-              ),
-              margin: const EdgeInsets.symmetric(
-                horizontal: 0,
-                vertical: 0,
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  // ]).then((fn) {
+  runApp(
+    ProviderScope(
+      child: MaterialApp(
+        theme: ThemeData().copyWith(
+          useMaterial3: true,
+          colorScheme: kColorScheme,
+          appBarTheme: const AppBarTheme().copyWith(
+            backgroundColor: kColorScheme.onPrimaryContainer,
+            foregroundColor: kColorScheme.primaryContainer,
+          ),
+          cardTheme: const CardTheme().copyWith(
+            color: kColorScheme.secondaryContainer,
+            shape: const ContinuousRectangleBorder(
+              borderRadius: BorderRadius.zero,
+              side: BorderSide(
+                style: BorderStyle.solid,
+                color: Colors.black,
+                width: .3,
               ),
             ),
-            elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: kColorScheme.primaryContainer),
-            ),
-            outlinedButtonTheme: OutlinedButtonThemeData(
-              style: OutlinedButton.styleFrom(
-                backgroundColor: kColorScheme.primaryContainer,
-                foregroundColor: kColorScheme.shadow,
-              ),
+            margin: const EdgeInsets.symmetric(
+              horizontal: 0,
+              vertical: 0,
             ),
           ),
-          home: const HabitVpet(),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: kColorScheme.primaryContainer),
+          ),
+          outlinedButtonTheme: OutlinedButtonThemeData(
+            style: OutlinedButton.styleFrom(
+              backgroundColor: kColorScheme.primaryContainer,
+              foregroundColor: kColorScheme.shadow,
+            ),
+          ),
         ),
+        home: const HabitVpet(),
       ),
-    );
-  });
+    ),
+  );
+  // });
 }
