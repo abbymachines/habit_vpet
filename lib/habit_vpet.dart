@@ -46,6 +46,11 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
 
   void _removeHabit(Habit habit) {
     final habitIndex = dummyHabits.indexOf(habit);
+    if (habit.isComplete == true) {
+      ref
+          .read(completedHabitsProvider.notifier)
+          .toggleHabitCompletionStatus(habit);
+    }
     setState(() {
       dummyHabits.remove(habit);
     });
@@ -82,6 +87,8 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
         onRemoveHabit: _removeHabit,
       );
     }
+
+    print('completed habits: ${myCompletedHabits.length}');
 
     int health = ((myCompletedHabits.length / myHabits.length) * 4)
         .floor(); // this logic must be moved to provider
