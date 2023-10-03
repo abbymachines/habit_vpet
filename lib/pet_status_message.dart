@@ -6,6 +6,7 @@ const statusMessages = {
   2: '🫥 i should probably eat huh',
   3: '😊 feeling good. & i could go for a snack soon maybe 😛',
   4: '😇😇😇 mine stomach is a full stomach',
+  5: 'lmao u messed up. wrong number baby'
 };
 
 class PetStatusMessage extends StatelessWidget {
