@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const fullHeart = '❤️';
+const fullHeart = '🤣';
 const halfHeart = '❤️‍🩹';
 const emptyHeart = '♡';
 
@@ -10,6 +10,7 @@ final heartBarStates = {
   2: fullHeart + fullHeart,
   3: fullHeart + fullHeart + fullHeart,
   4: fullHeart + fullHeart + fullHeart + fullHeart,
+  5: fullHeart,
 };
 
 class HeartBar extends StatelessWidget {
@@ -19,6 +20,8 @@ class HeartBar extends StatelessWidget {
 
   @override
   Widget build(context) {
+    print('the health is now $health');
+
     return SizedBox(
       width: 300,
       height: 40,

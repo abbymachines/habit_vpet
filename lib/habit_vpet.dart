@@ -70,6 +70,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   Widget build(BuildContext context) {
     final myHabits = ref.watch(habitsProvider);
     final myCompletedHabits = ref.watch(completedHabitsProvider);
+    // final health = ref.watch(healthProvider); // ☑️ This will be where health is loaded from.
 
     Widget habitContent = const Center(
       child: Text('No habits found. Start adding some!'),
@@ -82,7 +83,8 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
       );
     }
 
-    int health = ((myCompletedHabits.length / myHabits.length) * 4).round();
+    int health = ((myCompletedHabits.length / myHabits.length) * 4)
+        .floor(); // this logic must be moved to provider
 
     return Scaffold(
       appBar: AppBar(
