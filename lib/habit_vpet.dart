@@ -44,16 +44,23 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
     });
   }
 
+  void _toggleHabitCompletion(Habit habit) {
+    ref
+        .watch(completedHabitsProvider.notifier)
+        .toggleHabitCompletionStatus(habit);
+  }
+
   void _removeHabit(Habit habit) {
     final habitIndex = dummyHabits.indexOf(habit);
+
     if (habit.isComplete == true) {
-      ref
-          .read(completedHabitsProvider.notifier)
-          .toggleHabitCompletionStatus(habit);
+      _toggleHabitCompletion(habit);
     }
+
     setState(() {
       dummyHabits.remove(habit);
     });
+
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -65,6 +72,9 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
             setState(() {
               dummyHabits.insert(habitIndex, habit);
             });
+            if (habit.isComplete == false) {
+              _toggleHabitCompletion(habit);
+            }
           },
         ),
       ),

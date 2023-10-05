@@ -1,25 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:habit_vpet/models/habit.dart';
-
-// class CompletedHabitsNotifier extends StateNotifier<List<Habit>> {
-//   CompletedHabitsNotifier() : super([]);
-
-//   void toggleHabitCompletionStatus(Habit habit) {
-//     final mealIsFavorite = state.contains(meal);
-
-//     if (mealIsFavorite) {
-//       state = state.where((h) => h.id != habit.id).toList();
-//     } else {
-//       state = [...state, habit];
-//     }
-//   }
-// }
-
-// final completedHabitsProvider =
-//     StateNotifierProvider<CompletedHabitsNotifier, List<Habit>>((ref) {
-//   return CompletedHabitsNotifier();
-// });
+import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 
 class CompletedHabitsNotifier extends StateNotifier<List<Habit>> {
   CompletedHabitsNotifier() : super([]);
@@ -40,6 +22,15 @@ class CompletedHabitsNotifier extends StateNotifier<List<Habit>> {
       // likewise put a patch request here as well
     }
   }
+
+  bool setHabitCompletionToFalse(Habit habit) {
+    // final habitIsComplete = state.contains(habit);
+    return false;
+  }
+
+  // int returnLength(HabitList habits) {
+  //   CompletedHabitsNotifier.length
+  // }
 }
 
 final completedHabitsProvider =

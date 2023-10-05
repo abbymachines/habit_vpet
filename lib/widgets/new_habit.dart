@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/models/habit.dart';
 
-import 'package:http/http.dart' as http;
 
 class NewHabit extends StatefulWidget {
   const NewHabit({super.key, required this.onAddHabit});
