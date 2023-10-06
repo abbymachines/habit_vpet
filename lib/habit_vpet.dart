@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:habit_vpet/pet_status_message.dart';
 import 'package:habit_vpet/providers/completed_habits_provider.dart';
+import 'package:habit_vpet/providers/total_completed_habits_provider.dart';
 import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
 // import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
 import 'package:habit_vpet/models/habit.dart';
@@ -85,6 +86,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   Widget build(BuildContext context) {
     final myHabits = ref.watch(habitsProvider);
     final myCompletedHabits = ref.watch(completedHabitsProvider);
+    final totalCompletedHabits = ref.watch(totalCompletedHabitsProvider);
     // final health = ref.watch(healthProvider); // ☑️ This will be where health is loaded from.
 
     Widget habitContent = const Center(
@@ -98,9 +100,9 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
       );
     }
 
-    print('completed habits: ${myCompletedHabits.length}');
+    print('completed habits: $totalCompletedHabits');
 
-    int health = ((myCompletedHabits.length / myHabits.length) * 4)
+    int health = ((totalCompletedHabits / myHabits.length) * 4)
         .floor(); // this logic must be moved to provider
 
     return Scaffold(
