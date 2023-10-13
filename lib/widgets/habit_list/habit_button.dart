@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:habit_vpet/models/habit.dart';
-import 'package:habit_vpet/providers/completed_habits_provider.dart';
 
 class HabitButton extends StatefulWidget {
   const HabitButton({this.attachedHabit, super.key});

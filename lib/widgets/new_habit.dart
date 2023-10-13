@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/models/habit.dart';
 
-
 class NewHabit extends StatefulWidget {
   const NewHabit({super.key, required this.onAddHabit});
 
@@ -17,14 +16,12 @@ class _NewHabitState extends State<NewHabit> {
   final _titleController = TextEditingController();
   final _descriptionController = TextEditingController();
   final _frequencyController = TextEditingController();
-  // final _habitColorController = TextEditingController();
   final _isComplete = false;
   // final _isGoalMet = false;
 
   void _submitHabitData() async {
     if (_titleController.text.trim().isEmpty ||
         _frequencyController.text.trim().isEmpty) {
-      // || _habitColorController.cpo.trim().isEmpty) {
       showDialog(
         context: context,
         builder: (ctx) => AlertDialog(
@@ -51,7 +48,6 @@ class _NewHabitState extends State<NewHabit> {
         frequency: _frequencyController.text,
         habitColor: Colors.red,
         isComplete: _isComplete,
-        // isGoalMet: _isGoalMet
       ),
     );
     Navigator.pop(context);

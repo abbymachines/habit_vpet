@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:habit_vpet/pet_status_message.dart';
-import 'package:habit_vpet/providers/completed_habits_provider.dart';
-import 'package:habit_vpet/providers/total_completed_habits_provider.dart';
 import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
-// import 'package:habit_vpet/widgets/pet/pet_feeder.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 import 'package:habit_vpet/widgets/new_habit.dart';
@@ -46,9 +43,6 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   }
 
   void _toggleHabitCompletion(Habit habit) {
-    // ref
-    // .watch(completedHabitsProvider.notifier)
-    // .toggleHabitCompletionStatus(habit);
     print('not exactly how i want to build it');
   }
 
@@ -86,9 +80,6 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   @override
   Widget build(BuildContext context) {
     final myHabits = ref.watch(habitsProvider);
-    // final myCompletedHabits = ref.watch(completedHabitsProvider);
-    // final totalCompletedHabits = ref.watch(totalCompletedHabitsProvider);
-    // final health = ref.watch(healthProvider); // ☑️ This will be where health is loaded from.
 
     Widget habitContent = const Center(
       child: Text('No habits found. Start adding some!'),
@@ -100,11 +91,6 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
         onRemoveHabit: _removeHabit,
       );
     }
-
-    // print('completed habits: $totalCompletedHabits');
-
-    // int health = ((totalCompletedHabits / myHabits.length) * 4)
-    //     .floor(); // this logic must be moved to provider
 
     return Scaffold(
       appBar: AppBar(
