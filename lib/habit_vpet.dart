@@ -8,7 +8,6 @@ import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 import 'package:habit_vpet/widgets/new_habit.dart';
 import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
-// import 'package:habit_vpet/providers/habits_provider.dart';
 
 class HabitVpet extends ConsumerStatefulWidget {
   const HabitVpet({super.key});
@@ -117,7 +116,6 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 20),
-            // const SizedBox(height: 20),
             HeartBar(2),
             const SizedBox(height: 5),
             const Center(
