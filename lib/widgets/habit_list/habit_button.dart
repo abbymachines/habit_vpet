@@ -34,8 +34,6 @@ class _HabitButtonState extends State<HabitButton> {
 
   @override
   Widget build(BuildContext context) {
-    // initialCompletion();
-
     return IconButton(
       iconSize: 60,
       onPressed: () {
