@@ -32,11 +32,3 @@ class Habit {
   final bool isComplete;
   // final bool isGoalMet; // implement later
 }
-
-  //  i got stuck here on 2023.8.4. i'm trying
-  // to track state somehow. i want...
-  // total completed habits (all habits where isComplete == true)
-  // total habits (the amount of habits there are in total)
-  // health =  ((totalCompletedHabits / totalHabits) * 4)
-  // the 'health value will then be passed into the heartbar, to determine how many hearts are shown.
-  // that should subsequently change the message displayed above the hearts (and this message should be its own widget)

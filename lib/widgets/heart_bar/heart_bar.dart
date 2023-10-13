@@ -23,7 +23,7 @@ class HeartBar extends StatelessWidget {
   @override
   Widget build(context) {
     print('the health is now $health');
-    print(habits)
+    print(dummyHabits.length);
 
     return SizedBox(
       width: 300,
