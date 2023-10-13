@@ -46,9 +46,10 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   }
 
   void _toggleHabitCompletion(Habit habit) {
-    ref
-        .watch(completedHabitsProvider.notifier)
-        .toggleHabitCompletionStatus(habit);
+    // ref
+    // .watch(completedHabitsProvider.notifier)
+    // .toggleHabitCompletionStatus(habit);
+    print('not exactly how i want to build it');
   }
 
   void _removeHabit(Habit habit) {
@@ -85,8 +86,8 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   @override
   Widget build(BuildContext context) {
     final myHabits = ref.watch(habitsProvider);
-    final myCompletedHabits = ref.watch(completedHabitsProvider);
-    final totalCompletedHabits = ref.watch(totalCompletedHabitsProvider);
+    // final myCompletedHabits = ref.watch(completedHabitsProvider);
+    // final totalCompletedHabits = ref.watch(totalCompletedHabitsProvider);
     // final health = ref.watch(healthProvider); // ☑️ This will be where health is loaded from.
 
     Widget habitContent = const Center(
@@ -100,10 +101,10 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
       );
     }
 
-    print('completed habits: $totalCompletedHabits');
+    // print('completed habits: $totalCompletedHabits');
 
-    int health = ((totalCompletedHabits / myHabits.length) * 4)
-        .floor(); // this logic must be moved to provider
+    // int health = ((totalCompletedHabits / myHabits.length) * 4)
+    //     .floor(); // this logic must be moved to provider
 
     return Scaffold(
       appBar: AppBar(
@@ -131,13 +132,13 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
           children: [
             const SizedBox(height: 20),
             // const SizedBox(height: 20),
-            HeartBar(health),
+            HeartBar(2),
             const SizedBox(height: 5),
             const Center(
               child: FrameChanger(),
             ),
             const SizedBox(height: 40),
-            PetStatusMessage(health),
+            PetStatusMessage(2),
             const SizedBox(height: 20),
             Expanded(
               flex: 5,
