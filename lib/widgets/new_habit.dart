@@ -17,7 +17,6 @@ class _NewHabitState extends State<NewHabit> {
   final _descriptionController = TextEditingController();
   final _frequencyController = TextEditingController();
   final _isComplete = false;
-  // final _isGoalMet = false;
 
   void _submitHabitData() async {
     if (_titleController.text.trim().isEmpty ||

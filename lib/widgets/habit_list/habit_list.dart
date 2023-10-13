@@ -29,6 +29,7 @@ class _HabitListState extends State<HabitList> {
   @override
   Widget build(BuildContext context) {
     refreshHabitsLength();
+    print(_habitsLength);
 
     return ListView.builder(
       itemCount: widget.habits.length,
@@ -43,6 +44,7 @@ class _HabitListState extends State<HabitList> {
         onDismissed: (direction) {
           widget.onRemoveHabit(widget.habits[index]);
           refreshHabitsLength();
+          print(_habitsLength);
         },
         child: HabitItem(
           widget.habits[index],
