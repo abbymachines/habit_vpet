@@ -45,6 +45,7 @@ class _HabitListState extends State<HabitList> {
           widget.onRemoveHabit(widget.habits[index]);
           refreshHabitsLength();
           print(_habitsLength);
+          print(widget.habits.length);
         },
         child: HabitItem(
           widget.habits[index],
