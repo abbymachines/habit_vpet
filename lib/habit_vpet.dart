@@ -8,7 +8,7 @@ import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 import 'package:habit_vpet/widgets/new_habit.dart';
 import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
-import 'package:habit_vpet/providers/habits_provider.dart';
+// import 'package:habit_vpet/providers/habits_provider.dart';
 
 class HabitVpet extends ConsumerStatefulWidget {
   const HabitVpet({super.key});
@@ -79,7 +79,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
 
   @override
   Widget build(BuildContext context) {
-    final myHabits = ref.watch(habitsProvider);
+    // final myHabits = ref.watch(habitsProvider);
 
     Widget habitContent = const Center(
       child: Text('No habits found. Start adding some!'),
@@ -87,7 +87,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
 
     if (dummyHabits.isNotEmpty) {
       habitContent = HabitList(
-        habits: myHabits,
+        habits: dummyHabits,
         onRemoveHabit: _removeHabit,
       );
     }
