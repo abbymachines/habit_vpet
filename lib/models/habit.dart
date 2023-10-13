@@ -20,7 +20,7 @@ class Habit {
     required this.title,
     required this.frequency,
     required this.habitColor,
-    required this.isComplete,
+    this.isComplete = false,
     // required this.isGoalMet, // implement later
   }) : id = uuid.v4();
 

@@ -4,36 +4,50 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/providers/completed_habits_provider.dart';
 
-class HabitButton extends ConsumerWidget {
-  const HabitButton({
-    required this.attachedHabit,
-    super.key,
-  });
+class HabitButton extends StatefulWidget {
+  const HabitButton({this.attachedHabit, super.key});
 
-  final Habit attachedHabit;
+  final Habit? attachedHabit;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    String labelText = false.toString();
-    final completedHabits = ref.watch(completedHabitsProvider);
+  State<HabitButton> createState() => _HabitButtonState();
+}
 
-    final isComplete = completedHabits.contains(attachedHabit);
+class _HabitButtonState extends State<HabitButton> {
+  var _isComplete = false;
+
+  void initialCompletion(Habit loadedHabit) {
+    setState(() {
+      _isComplete = loadedHabit.isComplete;
+    });
+  }
+
+  void toggleHabitCompletion() {
+    setState(() {
+      if (_isComplete) {
+        _isComplete = false;
+      } else {
+        _isComplete = true;
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // initialCompletion();
 
     return IconButton(
       iconSize: 60,
       onPressed: () {
-        final wasCompleted = ref
-            .read(completedHabitsProvider.notifier)
-            .toggleHabitCompletionStatus(attachedHabit);
-        labelText = wasCompleted.toString();
+        toggleHabitCompletion();
         ScaffoldMessenger.of(context).clearSnackBars();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(wasCompleted ? 'yummy 😋' : 'oh...'),
+            content: Text(_isComplete ? 'yummy 😋' : 'oh...'),
           ),
         );
       },
-      icon: Icon(isComplete ? Icons.check_box : Icons.check_box_outline_blank),
+      icon: Icon(_isComplete ? Icons.check_box : Icons.check_box_outline_blank),
     );
   }
 }
