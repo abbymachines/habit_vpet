@@ -9,16 +9,16 @@ import 'package:habit_vpet/widgets/new_habit.dart';
 import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
 
-class HabitVpet extends ConsumerStatefulWidget {
+class HabitVpet extends StatefulWidget {
   const HabitVpet({super.key});
 
   @override
-  ConsumerState<HabitVpet> createState() {
+  State<HabitVpet> createState() {
     return _HabitVpetState();
   }
 }
 
-class _HabitVpetState extends ConsumerState<HabitVpet> {
+class _HabitVpetState extends State<HabitVpet> {
   var activeScreen = 'start-screen';
 
   void switchScreen() {
