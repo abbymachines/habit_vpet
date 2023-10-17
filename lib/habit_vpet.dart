@@ -8,6 +8,7 @@ import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 import 'package:habit_vpet/widgets/new_habit.dart';
 import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
+import 'package:habit_vpet/widgets/state/health.dart';
 
 class HabitVpet extends StatefulWidget {
   const HabitVpet({super.key});
@@ -117,6 +118,7 @@ class _HabitVpetState extends State<HabitVpet> {
           children: [
             const SizedBox(height: 20),
             HeartBar(2),
+            Health(habitList: dummyHabits),
             const SizedBox(height: 5),
             const Center(
               child: FrameChanger(),
