@@ -38,7 +38,7 @@ class _FrameChangerState extends State<FrameChanger> {
             ),
           ),
         ),
-        Pet(currentPetFrame),
+        // Pet(currentPetFrame),
         const SizedBox(
           height: 20,
         ),

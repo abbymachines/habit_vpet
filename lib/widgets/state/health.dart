@@ -16,18 +16,49 @@ class Health extends StatefulWidget {
 
 class _HealthState extends State<Health> {
   var _health = 0;
-  var _habitLength = 0;
+  List<Habit> _habitsList = [];
+  List<Habit> _completedHabitsList = [];
+  var _habitsLength = 0;
+  var _completedHabitsLength = 0;
+
+  void refreshHabitsList() {
+    setState(() {
+      _habitsList = widget.habitList;
+    });
+  }
+
+  void countCompletedHabits(habitsList) {
+    setState(() {
+      _completedHabitsList = [];
+    });
+
+    for (final habit in _habitsList) {
+      if (habit.isComplete) {
+        setState(() {
+          _completedHabitsList.add(habit);
+        });
+      }
+    }
+
+    setState(() {
+      _completedHabitsLength = _completedHabitsList.length;
+    });
+
+    refreshHealth();
+  }
 
   void refreshHealth() {
     return setState(() {
-      _habitLength = widget.habitList.length;
-      _health = _habitLength * 10;
+      _habitsLength = widget.habitList.length;
+      _health = _habitsLength * _completedHabitsLength;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    refreshHealth();
+    refreshHabitsList();
+    countCompletedHabits(widget.habitList);
+    // refreshHealth();
     return Text(_health.toString());
   }
 }

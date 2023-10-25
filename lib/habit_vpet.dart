@@ -20,11 +20,11 @@ class HabitVpet extends StatefulWidget {
 }
 
 class _HabitVpetState extends State<HabitVpet> {
-  var activeScreen = 'start-screen';
+  var _activeScreen = 'start-screen';
 
   void switchScreen() {
     setState(() {
-      activeScreen = 'habits-screen';
+      _activeScreen = 'habits-screen';
     });
   }
 
@@ -117,12 +117,12 @@ class _HabitVpetState extends State<HabitVpet> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 20),
-            HeartBar(2),
-            Health(habitList: dummyHabits),
+            // HeartBar(2),
+            // Health(habitList: dummyHabits),
             const SizedBox(height: 5),
-            const Center(
-              child: FrameChanger(),
-            ),
+            // const Center(
+            //   child: FrameChanger(),
+            // ),
             const SizedBox(height: 40),
             PetStatusMessage(2),
             const SizedBox(height: 20),
