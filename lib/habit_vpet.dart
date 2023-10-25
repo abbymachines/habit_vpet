@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:habit_vpet/main.dart';
 
 import 'package:habit_vpet/pet_status_message.dart';
 import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
@@ -9,17 +10,20 @@ import 'package:habit_vpet/widgets/new_habit.dart';
 import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
 import 'package:habit_vpet/widgets/state/health.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HabitVpet extends StatefulWidget {
-  const HabitVpet({super.key});
+class HabitVpet extends ConsumerStatefulWidget {
+  const HabitVpet({required this.health, super.key});
+
+  final Provider<int> health;
 
   @override
-  State<HabitVpet> createState() {
+  ConsumerState<HabitVpet> createState() {
     return _HabitVpetState();
   }
 }
 
-class _HabitVpetState extends State<HabitVpet> {
+class _HabitVpetState extends ConsumerState<HabitVpet> {
   var _activeScreen = 'start-screen';
 
   void switchScreen() {

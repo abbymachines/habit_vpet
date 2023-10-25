@@ -12,6 +12,10 @@ final helloWorldProvider = Provider<String>((ref) {
   return 'Hello world!! shout out to world';
 });
 
+final healthProvider = Provider<int>((ref) {
+  return 0;
+});
+
 void main() {
   runApp(
     ProviderScope(
@@ -63,7 +67,9 @@ class MyApp extends ConsumerWidget {
         appBar: AppBar(
           title: Text(value),
         ),
-        body: const HabitVpet(),
+        body: HabitVpet(
+          health: healthProvider,
+        ),
       ),
     );
   }
