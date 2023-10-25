@@ -8,10 +8,9 @@ var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 130, 134, 12),
 );
 
-// @riverpod
-// String helloWorld(HelloWorldRef ref) {
-//   return 'Hello world';
-// }
+final helloWorldProvider = Provider<String>((ref) {
+  return 'Hello world!! shout out to world';
+});
 
 void main() {
   runApp(
@@ -24,7 +23,7 @@ void main() {
 class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final String value = ref.watch(helloWorldProvider);
+    final String value = ref.watch(helloWorldProvider);
 
     return MaterialApp(
       theme: ThemeData().copyWith(
@@ -60,7 +59,12 @@ class MyApp extends ConsumerWidget {
           ),
         ),
       ),
-      home: Scaffold(body: const HabitVpet()),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(value),
+        ),
+        body: const HabitVpet(),
+      ),
     );
   }
 }
