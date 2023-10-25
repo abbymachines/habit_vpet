@@ -28,6 +28,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final String value = ref.watch(helloWorldProvider);
+    final int health = ref.watch(healthProvider);
 
     return MaterialApp(
       theme: ThemeData().copyWith(
@@ -65,7 +66,7 @@ class MyApp extends ConsumerWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text(value),
+          title: Text(health.toString()),
         ),
         body: HabitVpet(
           health: healthProvider,
