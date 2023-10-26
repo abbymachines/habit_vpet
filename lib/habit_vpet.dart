@@ -7,15 +7,16 @@ import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 import 'package:habit_vpet/widgets/new_habit.dart';
+import 'package:habit_vpet/widgets/pet/consumer_pet.dart';
 import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
 import 'package:habit_vpet/widgets/state/health.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HabitVpet extends ConsumerStatefulWidget {
-  const HabitVpet({required this.health, super.key});
+  const HabitVpet({super.key});
 
-  final Provider<int> health;
+  // final Provider<int> health;
 
   @override
   ConsumerState<HabitVpet> createState() {
@@ -85,6 +86,8 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   Widget build(BuildContext context) {
     // final myHabits = ref.watch(habitsProvider);
 
+    // final health = ref.watch(healthProvider);
+
     Widget habitContent = const Center(
       child: Text('No habits found. Start adding some!'),
     );
@@ -98,7 +101,9 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('habit vpet'),
+        title: const Text(
+          'still figuring out Providers...',
+        ),
         actions: [
           IconButton(
             onPressed: _openAddHabitOverlay,
@@ -120,6 +125,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            PetWidget(),
             const SizedBox(height: 20),
             // HeartBar(2),
             // Health(habitList: dummyHabits),

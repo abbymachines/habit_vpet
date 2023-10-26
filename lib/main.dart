@@ -66,11 +66,13 @@ class MyApp extends ConsumerWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text(health.toString()),
+          title: Text(
+            health.toString(),
+          ),
         ),
         body: HabitVpet(
-          health: healthProvider,
-        ),
+            // health: healthProvider,
+            ),
       ),
     );
   }
