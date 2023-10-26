@@ -125,15 +125,20 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            PetWidget(),
-            const SizedBox(height: 20),
+            // const SizedBox(height: 20),
             // HeartBar(2),
             // Health(habitList: dummyHabits),
-            const SizedBox(height: 5),
+            // const SizedBox(height: 5),
             // const Center(
             //   child: FrameChanger(),
             // ),
-            const SizedBox(height: 40),
+            // SizedBox(
+            //   height: 300,
+            //   width: 100,
+            //   child: PetWidget(),
+            // ),
+            PetWidget(),
+            const SizedBox(height: 20),
             PetStatusMessage(2),
             const SizedBox(height: 20),
             Expanded(
