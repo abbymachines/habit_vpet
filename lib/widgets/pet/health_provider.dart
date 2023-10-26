@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:habit_vpet/widgets/pet/pet.dart';
 
-final healthProvider = Provider<int>((_) => 100);
+final healthProvider = Provider<int>((_) => 0);
 
 // 1. extend [ConsumerStatefulWidget]
 class PetWidget extends ConsumerStatefulWidget {
@@ -24,7 +24,7 @@ class _PetState extends ConsumerState<PetWidget> {
   Widget build(BuildContext context) {
     // 4. use ref.watch() to get the value of the provider
     final health = ref.watch(healthProvider);
-    return Text(health.toString());
+    return Pet(health: health);
   }
 }
 
