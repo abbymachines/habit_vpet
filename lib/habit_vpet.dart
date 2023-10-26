@@ -7,7 +7,7 @@ import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 import 'package:habit_vpet/widgets/new_habit.dart';
-import 'package:habit_vpet/widgets/pet/consumer_pet.dart';
+import 'package:habit_vpet/widgets/pet/health_provider.dart';
 import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
 import 'package:habit_vpet/widgets/state/health.dart';
