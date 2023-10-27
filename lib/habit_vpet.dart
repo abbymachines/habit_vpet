@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:habit_vpet/main.dart';
 
 import 'package:habit_vpet/pet_status_message.dart';
-import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
+import 'package:habit_vpet/providers/completed_habits_provider.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 import 'package:habit_vpet/widgets/new_habit.dart';
 
-import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
-import 'package:habit_vpet/widgets/state/health.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:habit_vpet/widgets/pet/pet.dart';
 import 'package:habit_vpet/providers/health_provider.dart';
@@ -51,7 +47,6 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
 
   void _toggleHabitCompletion(Habit habit) {
     print('not exactly how i want to build it');
-    // ref.read(healthProvider.notifier).incrementHealth(health);
   }
 
   void _removeHabit(Habit habit) {
@@ -139,13 +134,31 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
                     onPressed: () {
                       ref.read(healthProvider.notifier).decrementHealth(health);
                     },
-                    child: Text('starve mi')),
+                    child: const Text('starve mi')),
                 TextButton(
                   onPressed: () {
                     ref.read(healthProvider.notifier).incrementHealth(health);
                   },
-                  child: Text('feed mi'),
+                  child: const Text('feed mi'),
                 ),
+              ],
+            ),
+            Row(
+              children: [
+                TextButton(
+                    onPressed: () {
+                      print(
+                        ref.watch(habitsProvider),
+                      );
+                    },
+                    child: const Text('all habits')),
+                TextButton(
+                    onPressed: () {
+                      print(
+                        ref.watch(completedHabitsProvider),
+                      );
+                    },
+                    child: const Text('completed habits')),
               ],
             ),
             Expanded(
