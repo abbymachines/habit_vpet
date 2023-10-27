@@ -18,19 +18,19 @@ class HabitList extends StatefulWidget {
 }
 
 class _HabitListState extends State<HabitList> {
-  var _habitsLength = 0;
-  var _completedHabitsLength = 0;
+  // var _habitsLength = 0;
+  // var _completedHabitsLength = 0;
 
-  void refreshHabitsLength() {
-    setState(() {
-      _habitsLength = widget.habits.length;
-    });
-  }
+  // void refreshHabitsLength() {
+  //   setState(() {
+  //     _habitsLength = widget.habits.length;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
-    refreshHabitsLength();
-    print(_habitsLength);
+    // refreshHabitsLength();
+    // print(_habitsLength);
 
     return ListView.builder(
       itemCount: widget.habits.length,
@@ -44,9 +44,9 @@ class _HabitListState extends State<HabitList> {
         ),
         onDismissed: (direction) {
           widget.onRemoveHabit(widget.habits[index]);
-          refreshHabitsLength();
-          print(_habitsLength);
-          print(widget.habits.length);
+          // refreshHabitsLength();
+          // print(_habitsLength);
+          // print(widget.habits.length);
         },
         child: HabitItem(
           widget.habits[index],
