@@ -14,6 +14,7 @@ import 'package:habit_vpet/widgets/state/health.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:habit_vpet/widgets/pet/pet_widget.dart';
 import 'package:habit_vpet/widgets/pet/pet.dart';
+import 'package:habit_vpet/providers/health_provider.dart';
 
 class HabitVpet extends ConsumerStatefulWidget {
   const HabitVpet({super.key});
@@ -85,6 +86,8 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
 
   @override
   Widget build(BuildContext context) {
+    final health = ref.watch(healthProvider);
+
     Widget habitContent = const Center(
       child: Text('No habits found. Start adding some!'),
     );
@@ -123,7 +126,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 20),
-            Pet(health: 5),
+            Pet(health: health),
             const SizedBox(height: 20),
             PetStatusMessage(2),
             const SizedBox(height: 20),
