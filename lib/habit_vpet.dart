@@ -7,12 +7,12 @@ import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 import 'package:habit_vpet/widgets/new_habit.dart';
-import 'package:habit_vpet/widgets/pet/pet_widget.dart';
+
 import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
 import 'package:habit_vpet/widgets/state/health.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:habit_vpet/widgets/pet/pet_widget.dart';
+
 import 'package:habit_vpet/widgets/pet/pet.dart';
 import 'package:habit_vpet/providers/health_provider.dart';
 
@@ -130,11 +130,21 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
             const SizedBox(height: 20),
             PetStatusMessage(health),
             const SizedBox(height: 20),
-            TextButton(
-              onPressed: () {
-                ref.read(healthProvider.notifier).incrementHealth(health);
-              },
-              child: Text('feed mi'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                    onPressed: () {
+                      ref.read(healthProvider.notifier).decrementHealth(health);
+                    },
+                    child: Text('starve mi')),
+                TextButton(
+                  onPressed: () {
+                    ref.read(healthProvider.notifier).incrementHealth(health);
+                  },
+                  child: Text('feed mi'),
+                ),
+              ],
             ),
             Expanded(
               flex: 5,

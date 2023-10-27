@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart'; // NEED TO ADD TO PUBSPEC
 
 import 'package:habit_vpet/habit_vpet.dart';
-import 'package:habit_vpet/widgets/pet/pet_widget.dart';
 
 var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 130, 134, 12),

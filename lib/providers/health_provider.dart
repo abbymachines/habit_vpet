@@ -10,6 +10,12 @@ class HealthNotifier extends StateNotifier<int> {
       state = (health += 1);
     }
   }
+
+  void decrementHealth(int health) {
+    if (health > 0) {
+      state = (health -= 1);
+    }
+  }
 }
 
 final healthProvider = StateNotifierProvider<HealthNotifier, int>((ref) {
