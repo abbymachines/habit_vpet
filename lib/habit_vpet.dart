@@ -50,7 +50,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
 
   void _toggleHabitCompletion(Habit habit) {
     print('not exactly how i want to build it');
-    // ref.read(healthProvider.state).state++;
+    // ref.read(healthProvider.notifier).incrementHealth(health);
   }
 
   void _removeHabit(Habit habit) {
@@ -128,8 +128,14 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
             const SizedBox(height: 20),
             Pet(health: health),
             const SizedBox(height: 20),
-            PetStatusMessage(2),
+            PetStatusMessage(health),
             const SizedBox(height: 20),
+            TextButton(
+              onPressed: () {
+                ref.read(healthProvider.notifier).incrementHealth(health);
+              },
+              child: Text('feed mi'),
+            ),
             Expanded(
               flex: 5,
               child: habitContent,

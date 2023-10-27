@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 
-const fullHeart = '🤣';
+const fullHeart = '❤️';
 const halfHeart = '❤️‍🩹';
 const emptyHeart = '♡';
 
