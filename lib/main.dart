@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart'; // NEED TO ADD TO PUBSPEC
 
 import 'package:habit_vpet/habit_vpet.dart';
+import 'package:habit_vpet/widgets/pet/pet_widget.dart';
 
 var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 130, 134, 12),
@@ -12,9 +13,9 @@ final helloWorldProvider = Provider<String>((ref) {
   return 'Hello world!! shout out to world';
 });
 
-final healthProvider = Provider<int>((ref) {
-  return 0;
-});
+// final healthProvider = Provider<int>((ref) {
+//   return 0;
+// });
 
 void main() {
   runApp(
@@ -28,7 +29,8 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final String value = ref.watch(helloWorldProvider);
-    final int health = ref.watch(healthProvider);
+    // final int health = ref.read(healthProvider);
+    final int health = 0;
 
     return MaterialApp(
       theme: ThemeData().copyWith(
