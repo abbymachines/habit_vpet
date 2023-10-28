@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:habit_vpet/main.dart';
 
 import 'package:habit_vpet/pet_status_message.dart';
 import 'package:habit_vpet/providers/completed_habits_provider.dart';
+import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
 import 'package:habit_vpet/widgets/new_habit.dart';
 
+import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
+import 'package:habit_vpet/widgets/state/health.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:habit_vpet/widgets/pet/pet.dart';
 import 'package:habit_vpet/providers/health_provider.dart';
