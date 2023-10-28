@@ -89,6 +89,13 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   Widget build(BuildContext context) {
     final habits = ref.watch(habitsProvider);
     final health = ref.watch(healthProvider);
+    var _length = habits.length;
+
+    void _refreshHabitsLength(List habits) {
+      setState(() {
+        _length = habits.length;
+      });
+    }
 
     Widget habitContent = const Center(
       child: Text('No habits found. Start adding some!'),
@@ -103,8 +110,8 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'still figuring out Providers...',
+        title: Text(
+          _length.toString(),
         ),
         actions: [
           IconButton(
