@@ -21,7 +21,6 @@ class Habit {
     required this.frequency,
     required this.habitColor,
     this.isComplete = false,
-    // required this.isGoalMet, // implement later
   }) : id = uuid.v4();
 
   final String id;
@@ -30,5 +29,4 @@ class Habit {
   final String frequency;
   final Color habitColor;
   final bool isComplete;
-  // final bool isGoalMet; // implement later
 }
