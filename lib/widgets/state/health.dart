@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
+
 import 'package:habit_vpet/models/habit.dart';
 
 class Health extends StatefulWidget {
@@ -58,7 +58,7 @@ class _HealthState extends State<Health> {
   Widget build(BuildContext context) {
     refreshHabitsList();
     countCompletedHabits(widget.habitList);
-    // refreshHealth();
+
     return Text(_health.toString());
   }
 }

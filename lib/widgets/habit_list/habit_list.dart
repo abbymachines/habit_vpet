@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_item.dart';
-import 'package:habit_vpet/widgets/state/health.dart';
 
 class HabitList extends StatefulWidget {
   const HabitList({

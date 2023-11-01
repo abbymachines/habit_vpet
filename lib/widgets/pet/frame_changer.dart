@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:habit_vpet/widgets/pet/pet.dart';
 
 final randomizer = Random();
 
@@ -38,7 +37,6 @@ class _FrameChangerState extends State<FrameChanger> {
             ),
           ),
         ),
-        // Pet(currentPetFrame),
         const SizedBox(
           height: 20,
         ),
