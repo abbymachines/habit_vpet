@@ -3,9 +3,18 @@ import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_button.dart';
 
 class HabitItem extends StatelessWidget {
-  const HabitItem(this.habit, {super.key});
+  const HabitItem(
+    this.habit,
+    this.onRefreshHealth, {
+    super.key,
+    required this.onCompleteHabit,
+    required this.onUncompleteHabit,
+  });
 
   final Habit habit;
+  final Function onRefreshHealth;
+  final void Function(Habit habit) onCompleteHabit;
+  final void Function(Habit habit) onUncompleteHabit;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +41,9 @@ class HabitItem extends StatelessWidget {
                 const Spacer(),
                 HabitButton(
                   attachedHabit: habit,
+                  onRefreshHealth: onRefreshHealth,
+                  onCompleteHabit: onCompleteHabit,
+                  onUncompleteHabit: onUncompleteHabit,
                 ),
               ],
             ),

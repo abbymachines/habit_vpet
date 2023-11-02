@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:habit_vpet/providers/actual_health_provider.dart';
 import 'package:habit_vpet/providers/apparent_health_provider.dart';
 import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
+import 'package:habit_vpet/widgets/pet/actual_health.dart';
 import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,7 +10,7 @@ class Pet extends ConsumerStatefulWidget {
   const Pet(
       {
       // required this.apparentHealth,
-      // required this.actualHealth,
+      required this.actualHealth,
       super.key});
 
   @override
@@ -17,7 +19,7 @@ class Pet extends ConsumerStatefulWidget {
   }
 
   // final int apparentHealth;
-  // final int actualHealth;
+  final int actualHealth;
 }
 
 class _PetState extends ConsumerState<Pet> {
@@ -30,14 +32,17 @@ class _PetState extends ConsumerState<Pet> {
   Widget build(BuildContext context) {
     final apparentHealth = ref.watch(apparentHealthProvider);
 
+    // final actualHealth = ref.watch(actualHealthProvider);
+
     return Column(
       children: [
         SizedBox(
           width: 300,
-          height: 200,
+          height: 250,
           child: Column(
             children: [
               HeartBar(apparentHealth),
+              Text('0'),
               const FrameChanger(),
               Image.asset('assets/images/worm1.png', width: 200),
             ],

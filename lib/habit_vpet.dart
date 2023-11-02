@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:habit_vpet/data/dummy_completed_habits.dart';
 
 import 'package:habit_vpet/pet_status_message.dart';
 import 'package:habit_vpet/providers/completed_habits_provider.dart';
@@ -26,11 +27,12 @@ class HabitVpet extends ConsumerStatefulWidget {
 }
 
 class _HabitVpetState extends ConsumerState<HabitVpet> {
-  var _activeScreen = 'start-screen';
+  var _completedHabitsLength = 0;
 
-  void switchScreen() {
+  void _refreshCompletedHabitsLength() {
     setState(() {
-      _activeScreen = 'habits-screen';
+      _completedHabitsLength = dummyCompletedHabits.length;
+      // print('lol');
     });
   }
 
@@ -48,16 +50,28 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
     });
   }
 
+  void _completeHabit(Habit habit) {
+    setState(() {
+      dummyCompletedHabits.add(habit);
+    });
+  }
+
+  void _uncompleteHabit(Habit habit) {
+    setState(() {
+      dummyCompletedHabits.remove(habit);
+    });
+  }
+
   void _toggleHabitCompletion(Habit habit) {
     print('not exactly how i want to build it');
   }
 
+  void refreshActualHealth() {
+    print('lol');
+  }
+
   void _removeHabit(Habit habit) {
     final habitIndex = dummyHabits.indexOf(habit);
-
-    if (habit.isComplete == true) {
-      _toggleHabitCompletion(habit);
-    }
 
     setState(() {
       dummyHabits.remove(habit);
@@ -87,19 +101,6 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   Widget build(BuildContext context) {
     final habits = ref.watch(habitsProvider);
     final health = ref.watch(apparentHealthProvider);
-    var _length = habits.length;
-
-    void _startCountdown() {
-      Timer.periodic(const Duration(seconds: 1), (timer) {
-        ref.read(apparentHealthProvider.notifier).decrementHealth(health);
-      });
-    }
-
-    void _refreshHabitsLength(List habits) {
-      setState(() {
-        _length = habits.length;
-      });
-    }
 
     Widget habitContent = const Center(
       child: Text('No habits found. Start adding some!'),
@@ -109,13 +110,16 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
       habitContent = HabitList(
         habits: habits,
         onRemoveHabit: _removeHabit,
+        onRefreshHealth: _refreshCompletedHabitsLength,
+        onCompleteHabit: _completeHabit,
+        onUncompleteHabit: _uncompleteHabit,
       );
     }
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          _length.toString(),
+          _completedHabitsLength.toString(),
         ),
         actions: [
           IconButton(
@@ -139,7 +143,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 20),
-            const Pet(),
+            Pet(actualHealth: 0),
             const SizedBox(height: 20),
             PetStatusMessage(health),
             const SizedBox(height: 20),

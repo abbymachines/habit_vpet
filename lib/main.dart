@@ -29,7 +29,7 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final String value = ref.watch(helloWorldProvider);
     // final int health = ref.read(healthProvider);
-    final int health = 0;
+    // final int health = 0;
 
     return MaterialApp(
       theme: ThemeData().copyWith(
@@ -68,7 +68,7 @@ class MyApp extends ConsumerWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            health.toString(),
+            'habit pet',
           ),
         ),
         body: HabitVpet(
