@@ -11,8 +11,10 @@ import 'package:habit_vpet/widgets/new_habit.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
 
 import 'package:habit_vpet/widgets/pet/pet.dart';
-import 'package:habit_vpet/providers/health_provider.dart';
+import 'package:habit_vpet/providers/actual_health_provider.dart';
 import 'package:habit_vpet/providers/habits_provider.dart';
+
+import 'dart:async';
 
 class HabitVpet extends ConsumerStatefulWidget {
   const HabitVpet({super.key});
@@ -87,6 +89,12 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
     final health = ref.watch(healthProvider);
     var _length = habits.length;
 
+    void _startCountdown() {
+      Timer.periodic(const Duration(seconds: 1), (timer) {
+        ref.read(healthProvider.notifier).decrementHealth(health);
+      });
+    }
+
     void _refreshHabitsLength(List habits) {
       setState(() {
         _length = habits.length;
@@ -140,7 +148,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
               children: [
                 TextButton(
                     onPressed: () {
-                      ref.read(healthProvider.notifier).decrementHealth(health);
+                      ref.read(healthProvider.notifier).startCountdown(health);
                     },
                     child: const Text('starve mi')),
                 TextButton(

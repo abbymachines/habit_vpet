@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:habit_vpet/models/habit.dart';
-import 'package:habit_vpet/providers/health_provider.dart';
+import 'package:habit_vpet/providers/actual_health_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HabitButton extends ConsumerStatefulWidget {
