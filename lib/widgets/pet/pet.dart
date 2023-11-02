@@ -6,7 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class Pet extends ConsumerStatefulWidget {
   const Pet(
-      {required this.apparentHealth,
+      {
+      // required this.apparentHealth,
       // required this.actualHealth,
       super.key});
 
@@ -15,7 +16,7 @@ class Pet extends ConsumerStatefulWidget {
     return _PetState();
   }
 
-  final int apparentHealth;
+  // final int apparentHealth;
   // final int actualHealth;
 }
 
@@ -23,11 +24,11 @@ class _PetState extends ConsumerState<Pet> {
   // final _apparentHealth = ref.watch(apparentHealthProvider);
   // var _actualHealth = 0;
 
-  void _refreshHealth = 0;
+  // void _refreshHealth = 0;
 
   @override
   Widget build(BuildContext context) {
-    final _apparentHealth = ref.watch(apparentHealthProvider);
+    final apparentHealth = ref.watch(apparentHealthProvider);
 
     return Column(
       children: [
@@ -36,7 +37,7 @@ class _PetState extends ConsumerState<Pet> {
           height: 200,
           child: Column(
             children: [
-              HeartBar(_apparentHealth),
+              HeartBar(apparentHealth),
               const FrameChanger(),
               Image.asset('assets/images/worm1.png', width: 200),
             ],
