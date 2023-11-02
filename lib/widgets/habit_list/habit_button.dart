@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:habit_vpet/models/habit.dart';
-import 'package:habit_vpet/providers/actual_health_provider.dart';
+import 'package:habit_vpet/providers/apparent_health_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HabitButton extends ConsumerStatefulWidget {
@@ -26,16 +26,16 @@ class _HabitButtonState extends ConsumerState<HabitButton> {
 
   @override
   Widget build(BuildContext context) {
-    final health = ref.watch(healthProvider);
+    final health = ref.watch(apparentHealthProvider);
 
     void toggleHabitCompletion() {
       setState(() {
         if (_isComplete) {
           _isComplete = false;
-          ref.read(healthProvider.notifier).decrementHealth(health);
+          ref.read(apparentHealthProvider.notifier).decrementHealth(health);
         } else {
           _isComplete = true;
-          ref.read(healthProvider.notifier).incrementHealth(health);
+          ref.read(apparentHealthProvider.notifier).incrementHealth(health);
         }
       });
     }

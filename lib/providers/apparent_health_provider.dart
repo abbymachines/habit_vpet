@@ -1,10 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:async';
 
+import 'package:habit_vpet/providers/actual_health_provider.dart';
+
 class ApparentHealthNotifier extends StateNotifier<int> {
   ApparentHealthNotifier() : super(0);
 
-  void incrementApparentHealth(int health) {
+  void incrementHealth(int health) {
     if (health == 4) {
       state = 4;
     } else {
@@ -12,14 +14,20 @@ class ApparentHealthNotifier extends StateNotifier<int> {
     }
   }
 
-  void decrementApparentHealth(int health) {
+  void decrementHealth(int health) {
     if (health > 0) {
       state = (health -= 1);
     }
   }
+
+  void startCountdown(health) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      decrementHealth(health);
+    });
+  }
 }
 
-final healthProvider =
+final apparentHealthProvider =
     StateNotifierProvider<ApparentHealthNotifier, int>((ref) {
   return ApparentHealthNotifier();
 });

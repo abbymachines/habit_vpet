@@ -1,5 +1,16 @@
 # BLOG
 
+2023.11.1
+thinking out loud here.
+
+i'm stuck trying to figure out state in this app, in particular the behavior of Health as a variable.
+
+what i need to do is formalize a separation between ActualHealth and ApparentHealth. ActualHealth is the true value of health, calculated as (completedHabits.length / totalHabits.length) * 4.
+
+ApparentHealth is set at a minimum of ActualHealth. ApparentHealth then increments by 1 every time a habit is completed. Then, a timer begins to reduce the value of ApparentHealth by 1 until it matches ActualHealth.
+
+I think this brings me closer to my goal.
+
 2023.8.4
 4: your worm is a happy worm
 3: thine worm is a contented worm

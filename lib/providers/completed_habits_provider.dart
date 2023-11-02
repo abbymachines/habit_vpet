@@ -12,6 +12,10 @@ class CompletedHabitsNotifier extends StateNotifier<List<Habit>> {
       state = [...state, habit];
     }
   }
+
+  int returnCompletedHabitsLength() {
+    return state.length;
+  }
 }
 
 final completedHabitsProvider = StateNotifierProvider((ref) {

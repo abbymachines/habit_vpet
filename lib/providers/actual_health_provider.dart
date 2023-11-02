@@ -1,30 +1,44 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:async';
 
-class HealthNotifier extends StateNotifier<int> {
-  HealthNotifier() : super(0);
+import 'package:habit_vpet/providers/apparent_health_provider.dart';
+import 'package:habit_vpet/providers/completed_habits_provider.dart';
+import 'package:habit_vpet/providers/habits_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:habit_vpet/providers/habits_provider.dart';
 
-  void incrementHealth(int health) {
-    if (health == 4) {
-      state = 4;
-    } else {
-      state = (health += 1);
-    }
+class ActualHealthNotifier extends StateNotifier<int> {
+  ActualHealthNotifier() : super(0);
+
+  int _completedHabitsLength = 0;
+  int _totalHabitsLength = 0;
+
+  void setActualHealth(int health, WidgetRef ref) {
+    _completedHabitsLength = ref
+        .read(completedHabitsProvider.notifier)
+        .returnCompletedHabitsLength();
+
+    _totalHabitsLength = ref.read(habitsProvider.notifier).returnHabitsLength();
+
+    state = ((_completedHabitsLength / _totalHabitsLength) * 4).floor();
   }
 
-  void decrementHealth(int health) {
-    if (health > 0) {
-      state = (health -= 1);
-    }
-  }
+  // void incrementApparentHealth(int health) {
+  //   if (health == 4) {
+  //     state = 4;
+  //   } else {
+  //     state = (health += 1);
+  //   }
+  // }
 
-  void startCountdown(health) {
-    Timer.periodic(const Duration(seconds: 1), (timer) {
-      decrementHealth(health);
-    });
-  }
+  // void decrementApparentHealth(int health) {
+  //   if (health > 0) {
+  //     state = (health -= 1);
+  //   }
+  // }
 }
 
-final healthProvider = StateNotifierProvider<HealthNotifier, int>((ref) {
-  return HealthNotifier();
+final actualHealthProvider =
+    StateNotifierProvider<ActualHealthNotifier, int>((ref) {
+  return ActualHealthNotifier();
 });

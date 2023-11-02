@@ -11,7 +11,7 @@ import 'package:habit_vpet/widgets/new_habit.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
 
 import 'package:habit_vpet/widgets/pet/pet.dart';
-import 'package:habit_vpet/providers/actual_health_provider.dart';
+import 'package:habit_vpet/providers/apparent_health_provider.dart';
 import 'package:habit_vpet/providers/habits_provider.dart';
 
 import 'dart:async';
@@ -86,12 +86,12 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   @override
   Widget build(BuildContext context) {
     final habits = ref.watch(habitsProvider);
-    final health = ref.watch(healthProvider);
+    final health = ref.watch(apparentHealthProvider);
     var _length = habits.length;
 
     void _startCountdown() {
       Timer.periodic(const Duration(seconds: 1), (timer) {
-        ref.read(healthProvider.notifier).decrementHealth(health);
+        ref.read(apparentHealthProvider.notifier).decrementHealth(health);
       });
     }
 
@@ -139,7 +139,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 20),
-            Pet(health: health),
+            Pet(apparentHealth: health),
             const SizedBox(height: 20),
             PetStatusMessage(health),
             const SizedBox(height: 20),
@@ -148,12 +148,16 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
               children: [
                 TextButton(
                     onPressed: () {
-                      ref.read(healthProvider.notifier).startCountdown(health);
+                      ref
+                          .read(apparentHealthProvider.notifier)
+                          .startCountdown(health);
                     },
                     child: const Text('starve mi')),
                 TextButton(
                   onPressed: () {
-                    ref.read(healthProvider.notifier).incrementHealth(health);
+                    ref
+                        .read(apparentHealthProvider.notifier)
+                        .incrementHealth(health);
                   },
                   child: const Text('feed mi'),
                 ),

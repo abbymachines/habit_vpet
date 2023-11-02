@@ -8,6 +8,10 @@ class HabitsNotifier extends StateNotifier<List<Habit>> {
   void addHabit(Habit habit) {
     state.add(habit);
   }
+
+  int returnHabitsLength() {
+    return state.length;
+  }
 }
 
 final habitsProvider =
