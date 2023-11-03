@@ -9,16 +9,12 @@ class HabitList extends StatefulWidget {
     required this.onRemoveHabit,
     required this.onRefreshHealth,
     required this.onToggleHabit,
-    required this.onCompleteHabit,
-    // required this.onUncompleteHabit,
   });
 
   final List<Habit> habits;
   final void Function(Habit habit) onRemoveHabit;
   final Function onRefreshHealth;
   final void Function(Habit habit) onToggleHabit;
-  final void Function(Habit habit) onCompleteHabit;
-  // final void Function(Habit habit) onUncompleteHabit;
 
   @override
   State<HabitList> createState() => _HabitListState();
@@ -43,8 +39,6 @@ class _HabitListState extends State<HabitList> {
         child: HabitItem(
           widget.habits[index],
           widget.onRefreshHealth,
-          // onCompleteHabit: widget.onCompleteHabit,
-          // onUncompleteHabit: widget.onUncompleteHabit,
           onToggleHabit: widget.onToggleHabit,
         ),
       ),

@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:habit_vpet/pet_status_message.dart';
-
-import 'package:habit_vpet/models/habit.dart';
-import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
-import 'package:habit_vpet/widgets/new_habit.dart';
-
 import 'package:habit_vpet/data/dummy_data.dart';
 
-import 'package:habit_vpet/widgets/pet/pet.dart';
+import 'package:habit_vpet/models/habit.dart';
+import 'package:habit_vpet/providers/apparent_health_provider.dart';
+
 import 'package:habit_vpet/providers/habits_provider.dart';
+
+import 'package:habit_vpet/pet_status_message.dart';
+import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
+import 'package:habit_vpet/widgets/new_habit.dart';
+import 'package:habit_vpet/widgets/pet/pet.dart';
 
 class HabitVpet extends ConsumerStatefulWidget {
   const HabitVpet({super.key});
@@ -25,7 +26,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   var _completedHabitsLength = 0;
   final List<Habit> _completedHabits = [];
   var _actualHealth = 0;
-  // var _apparentHealth = 0;
+  var _apparentHealth = 0;
 
   void _toggleHabit(Habit habit) {
     final isExisting = _completedHabits.contains(habit);
@@ -34,13 +35,31 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
       setState(() {
         _completedHabits.remove(habit);
         _completedHabitsLength = _completedHabits.length;
-        _refreshActualHealth();
       });
+      _decrementApparentHealth();
     } else {
       setState(() {
         _completedHabits.add(habit);
         _completedHabitsLength = _completedHabits.length;
-        _refreshActualHealth();
+      });
+      _incrementApparentHealth();
+    }
+    _refreshCompletedHabitsLength();
+    _refreshActualHealth();
+  }
+
+  void _incrementApparentHealth() {
+    if (_apparentHealth < 4) {
+      setState(() {
+        _apparentHealth += 1;
+      });
+    }
+  }
+
+  void _decrementApparentHealth() {
+    if (_apparentHealth > _actualHealth) {
+      setState(() {
+        _apparentHealth -= 1;
       });
     }
   }
@@ -53,17 +72,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   }
 
   void _refreshCompletedHabitsLength() {
-    setState(() {
-      _completedHabitsLength = 0;
-
-      for (Habit habit in dummyHabits) {
-        if (habit.isComplete == true) {
-          setState(() {
-            _completedHabitsLength += 1;
-          });
-        }
-      }
-    });
+    setState(() {});
   }
 
   void _openAddHabitOverlay() {
@@ -78,14 +87,6 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
     setState(() {
       dummyHabits.add(habit);
     });
-  }
-
-  void _toggleHabitCompletion(Habit habit) {
-    print('not exactly how i want to build it');
-  }
-
-  void refreshActualHealth() {
-    print('lol');
   }
 
   void _removeHabit(Habit habit) {
@@ -106,9 +107,6 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
             setState(() {
               dummyHabits.insert(habitIndex, habit);
             });
-            if (habit.isComplete == false) {
-              _toggleHabitCompletion(habit);
-            }
           },
         ),
       ),
@@ -130,9 +128,6 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
         onRemoveHabit: _removeHabit,
         onRefreshHealth: _refreshCompletedHabitsLength,
         onToggleHabit: _toggleHabit,
-        onCompleteHabit: _toggleHabitCompletion,
-        // onCompleteHabit: _completeHabit,
-        // onUncompleteHabit: _uncompleteHabit,
       );
     }
 
@@ -165,7 +160,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
             const SizedBox(height: 20),
             Pet(
               actualHealth: _actualHealth,
-              // onToggleHabit: _toggleHabit,
+              apparentHealth: _apparentHealth,
             ),
             const SizedBox(height: 20),
             PetStatusMessage(_actualHealth),
