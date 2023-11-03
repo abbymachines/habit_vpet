@@ -143,7 +143,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          _completedHabitsLength.toString(),
+          'completed habits: ${_completedHabitsLength.toString()} / ${habits.length}',
         ),
         actions: [
           IconButton(
