@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:habit_vpet/providers/actual_health_provider.dart';
+// import 'package:habit_vpet/providers/actual_health_provider.dart';
 import 'package:habit_vpet/providers/apparent_health_provider.dart';
 import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
-import 'package:habit_vpet/widgets/pet/actual_health.dart';
+
 import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:habit_vpet/models/habit.dart';

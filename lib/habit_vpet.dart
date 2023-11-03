@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:habit_vpet/data/dummy_completed_habits.dart';
 
 import 'package:habit_vpet/pet_status_message.dart';
-import 'package:habit_vpet/providers/completed_habits_provider.dart';
 
 import 'package:habit_vpet/models/habit.dart';
 import 'package:habit_vpet/widgets/habit_list/habit_list.dart';
@@ -12,10 +10,7 @@ import 'package:habit_vpet/widgets/new_habit.dart';
 import 'package:habit_vpet/data/dummy_data.dart';
 
 import 'package:habit_vpet/widgets/pet/pet.dart';
-import 'package:habit_vpet/providers/apparent_health_provider.dart';
 import 'package:habit_vpet/providers/habits_provider.dart';
-
-import 'dart:async';
 
 class HabitVpet extends ConsumerStatefulWidget {
   const HabitVpet({super.key});
@@ -30,7 +25,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   var _completedHabitsLength = 0;
   final List<Habit> _completedHabits = [];
   var _actualHealth = 0;
-  var _apparentHealth = 0;
+  // var _apparentHealth = 0;
 
   void _toggleHabit(Habit habit) {
     final isExisting = _completedHabits.contains(habit);
@@ -40,18 +35,12 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
         _completedHabits.remove(habit);
         _completedHabitsLength = _completedHabits.length;
         _refreshActualHealth();
-        ref
-            .read(apparentHealthProvider.notifier)
-            .decrementApparentHealth(_apparentHealth, _actualHealth);
       });
     } else {
       setState(() {
         _completedHabits.add(habit);
         _completedHabitsLength = _completedHabits.length;
         _refreshActualHealth();
-        ref
-            .read(apparentHealthProvider.notifier)
-            .incrementApparentHealth(_apparentHealth);
       });
     }
   }
@@ -212,9 +201,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
                     child: const Text('all habits')),
                 TextButton(
                     onPressed: () {
-                      // print(
-                      //   ref.watch(completedHabitsProvider),
-                      // );
+                      print(_completedHabits);
                     },
                     child: const Text('completed habits')),
               ],
