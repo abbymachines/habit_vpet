@@ -175,37 +175,17 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
             PetStatusMessage(_actualHealth),
             const SizedBox(height: 20),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextButton(
-                    onPressed: () {
-                      // ref
-                      //     .read(apparentHealthProvider.notifier)
-                      //     .startCountdown(health);
-                    },
-                    child: const Text('starve mi')),
-                TextButton(
-                  onPressed: () {
-                    // ref
-                    //     .read(apparentHealthProvider.notifier)
-                    //     .incrementHealth(health);
-                  },
-                  child: const Text('feed mi'),
-                ),
-              ],
-            ),
-            Row(
               children: [
                 TextButton(
                     onPressed: () {
                       print(
-                        ref.watch(habitsProvider),
+                        ref.watch(habitsProvider).map((habit) => habit.title),
                       );
                     },
                     child: const Text('all habits')),
                 TextButton(
                     onPressed: () {
-                      print(_completedHabits);
+                      print(_completedHabits.map((habit) => habit.title));
                     },
                     child: const Text('completed habits')),
               ],
