@@ -81,7 +81,9 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   }
 
   void _refreshCompletedHabitsLength() {
-    setState(() {});
+    setState(() {
+      _completedHabitsLength = _completedHabits.length;
+    });
   }
 
   void _openAddHabitOverlay() {
@@ -102,8 +104,12 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
     final habitIndex = dummyHabits.indexOf(habit);
 
     setState(() {
+      _completedHabits.remove(habit);
       dummyHabits.remove(habit);
     });
+
+    _refreshCompletedHabitsLength();
+    _refreshActualHealth();
 
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
