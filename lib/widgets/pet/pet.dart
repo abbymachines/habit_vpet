@@ -5,12 +5,14 @@ import 'package:habit_vpet/widgets/heart_bar/heart_bar.dart';
 import 'package:habit_vpet/widgets/pet/actual_health.dart';
 import 'package:habit_vpet/widgets/pet/frame_changer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:habit_vpet/models/habit.dart';
 
 class Pet extends ConsumerStatefulWidget {
   const Pet(
       {
       // required this.apparentHealth,
       required this.actualHealth,
+      // required this.onToggleHabit,
       super.key});
 
   @override
@@ -20,6 +22,7 @@ class Pet extends ConsumerStatefulWidget {
 
   // final int apparentHealth;
   final int actualHealth;
+  // final Function(Habit habit) onToggleHabit;
 }
 
 class _PetState extends ConsumerState<Pet> {
@@ -30,7 +33,7 @@ class _PetState extends ConsumerState<Pet> {
 
   @override
   Widget build(BuildContext context) {
-    final apparentHealth = ref.watch(apparentHealthProvider);
+    // final apparentHealth = ref.watch(apparentHealthProvider);
 
     // final actualHealth = ref.watch(actualHealthProvider);
 
@@ -41,8 +44,8 @@ class _PetState extends ConsumerState<Pet> {
           height: 250,
           child: Column(
             children: [
-              HeartBar(apparentHealth),
-              Text('0'),
+              HeartBar(widget.actualHealth),
+              Text('actual health: ${widget.actualHealth}'),
               const FrameChanger(),
               Image.asset('assets/images/worm1.png', width: 200),
             ],

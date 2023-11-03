@@ -8,13 +8,17 @@ class HabitItem extends StatelessWidget {
     this.onRefreshHealth, {
     super.key,
     required this.onCompleteHabit,
-    required this.onUncompleteHabit,
+    // required this.onUncompleteHabit,
+    required this.onToggleHabit,
+    this.isComplete = false,
   });
 
   final Habit habit;
   final Function onRefreshHealth;
   final void Function(Habit habit) onCompleteHabit;
-  final void Function(Habit habit) onUncompleteHabit;
+  // final void Function(Habit habit) onUncompleteHabit;
+  final void Function(Habit habit) onToggleHabit;
+  final bool isComplete;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +47,9 @@ class HabitItem extends StatelessWidget {
                   attachedHabit: habit,
                   onRefreshHealth: onRefreshHealth,
                   onCompleteHabit: onCompleteHabit,
-                  onUncompleteHabit: onUncompleteHabit,
+                  // onUncompleteHabit: onUncompleteHabit,
+                  isComplete: isComplete,
+                  onToggleHabit: onToggleHabit,
                 ),
               ],
             ),

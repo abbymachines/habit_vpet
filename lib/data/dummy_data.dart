@@ -15,7 +15,7 @@ final dummyHabits = [
     title: 'Homework',
     frequency: 'every weekday',
     habitColor: Colors.yellow,
-    isComplete: true,
+    isComplete: false,
     // isGoalMet: true,
   ),
   Habit(
@@ -31,7 +31,7 @@ final dummyHabits = [
     title: 'Clean your room',
     frequency: 'twice a week',
     habitColor: Colors.blue,
-    isComplete: true,
+    // isComplete: true,
     // isGoalMet: true,
   ),
   Habit(
@@ -39,7 +39,7 @@ final dummyHabits = [
     title: 'Play with Piggy :)',
     frequency: 'every day',
     habitColor: Colors.red,
-    isComplete: true,
+    // isComplete: true,
     // isGoalMet: true,
   ),
   Habit(
@@ -47,7 +47,7 @@ final dummyHabits = [
     title: 'Take out trash',
     frequency: 'once every five days',
     habitColor: Colors.blue,
-    isComplete: false,
+    // isComplete: false,
     // isGoalMet: false,
   ),
   Habit(
@@ -55,7 +55,7 @@ final dummyHabits = [
     title: 'Stream',
     frequency: 'five times a week',
     habitColor: Colors.yellow,
-    isComplete: false,
+    // isComplete: false,
     // isGoalMet: false,
   ),
   Habit(
@@ -63,7 +63,7 @@ final dummyHabits = [
     title: 'Clean litterbox',
     frequency: 'every day',
     habitColor: Colors.red,
-    isComplete: false,
+    // isComplete: false,
     // isGoalMet: false,
   ),
 ];

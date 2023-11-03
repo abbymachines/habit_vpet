@@ -1,68 +1,73 @@
 import 'package:flutter/material.dart';
-import 'package:habit_vpet/data/dummy_completed_habits.dart';
+// import 'package:habit_vpet/data/dummy_completed_habits.dart';
 
 import 'package:habit_vpet/models/habit.dart';
-import 'package:habit_vpet/providers/apparent_health_provider.dart';
+// import 'package:habit_vpet/providers/apparent_health_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:habit_vpet/data/dummy_data.dart';
 
-class HabitButton extends ConsumerStatefulWidget {
+class HabitButton extends StatefulWidget {
   const HabitButton(
       {required this.attachedHabit,
       required this.onRefreshHealth,
-      required this.onCompleteHabit,
-      required this.onUncompleteHabit,
+      required this.onCompleteHabit, // onCompleteHabit will be a function to add/remove habit to completed habits list
+      required this.isComplete,
+      required this.onToggleHabit,
+      // required this.onUncompleteHabit,
       super.key});
 
   final Habit attachedHabit;
   final Function onRefreshHealth;
   final void Function(Habit habit) onCompleteHabit;
-  final void Function(Habit habit) onUncompleteHabit;
+  final bool isComplete;
+  final void Function(Habit habit) onToggleHabit;
+  // final void Function(Habit habit) onUncompleteHabit;
 
   @override
-  ConsumerState<HabitButton> createState() {
+  State<HabitButton> createState() {
     return _HabitButtonState();
   }
 }
 
-class _HabitButtonState extends ConsumerState<HabitButton> {
+class _HabitButtonState extends State<HabitButton> {
   var _isComplete = false;
 
-  void initialCompletion(Habit loadedHabit) {
-    setState(() {
-      _isComplete = loadedHabit.isComplete;
-    });
-  }
+  // void initialCompletion(Habit loadedHabit) {
+  //   setState(() {
+  //     _isComplete = loadedHabit.isComplete;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
-    final health = ref.watch(apparentHealthProvider);
-    final habit = widget.attachedHabit;
+    // final health = ref.watch(apparentHealthProvider);
+    // final habit = widget.attachedHabit;
 
     void toggleHabitCompletion() {
-      if (_isComplete) {
+      if (widget.isComplete) {
         setState(() {
           _isComplete = false;
-          ref.read(apparentHealthProvider.notifier).decrementHealth(health);
+          // ref.read(apparentHealthProvider.notifier).decrementHealth(health);
           // dummyCompletedHabits.add(habit);
-          widget.onUncompleteHabit;
+          // widget.onUncompleteHabit;
+          widget.onRefreshHealth;
         });
         // dummyCompletedHabits.add(habit);
       } else {
         setState(() {
           _isComplete = true;
-          ref.read(apparentHealthProvider.notifier).incrementHealth(health);
+          // ref.read(apparentHealthProvider.notifier).incrementHealth(health);
           // dummyCompletedHabits.remove(habit);
-          widget.onCompleteHabit;
+          widget.onRefreshHealth;
         });
         // dummyCompletedHabits.remove(habit);
       }
-      print('completed habits length: ${dummyCompletedHabits.length}');
-      print('all the completed habits: $dummyCompletedHabits');
     }
 
     return IconButton(
       iconSize: 60,
       onPressed: () {
+        widget.onToggleHabit(widget.attachedHabit);
         toggleHabitCompletion();
         widget.onRefreshHealth();
         ScaffoldMessenger.of(context).clearSnackBars();

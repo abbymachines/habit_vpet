@@ -28,11 +28,45 @@ class HabitVpet extends ConsumerStatefulWidget {
 
 class _HabitVpetState extends ConsumerState<HabitVpet> {
   var _completedHabitsLength = 0;
+  final List<Habit> _completedHabits = [];
+  var _actualHealth = 0;
+
+  void _toggleHabit(Habit habit) {
+    final isExisting = _completedHabits.contains(habit);
+
+    if (isExisting) {
+      setState(() {
+        _completedHabits.remove(habit);
+        _completedHabitsLength = _completedHabits.length;
+        _refreshActualHealth();
+      });
+    } else {
+      setState(() {
+        _completedHabits.add(habit);
+        _completedHabitsLength = _completedHabits.length;
+        _refreshActualHealth();
+      });
+    }
+  }
+
+  void _refreshActualHealth() {
+    setState(() {
+      _actualHealth =
+          ((_completedHabitsLength / dummyHabits.length) * 4).floor();
+    });
+  }
 
   void _refreshCompletedHabitsLength() {
     setState(() {
-      _completedHabitsLength = dummyCompletedHabits.length;
-      // print('lol');
+      _completedHabitsLength = 0;
+
+      for (Habit habit in dummyHabits) {
+        if (habit.isComplete == true) {
+          setState(() {
+            _completedHabitsLength += 1;
+          });
+        }
+      }
     });
   }
 
@@ -47,18 +81,6 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   void _addHabit(Habit habit) {
     setState(() {
       dummyHabits.add(habit);
-    });
-  }
-
-  void _completeHabit(Habit habit) {
-    setState(() {
-      dummyCompletedHabits.add(habit);
-    });
-  }
-
-  void _uncompleteHabit(Habit habit) {
-    setState(() {
-      dummyCompletedHabits.remove(habit);
     });
   }
 
@@ -100,7 +122,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   @override
   Widget build(BuildContext context) {
     final habits = ref.watch(habitsProvider);
-    final health = ref.watch(apparentHealthProvider);
+    // final health = ref.watch(apparentHealthProvider);
 
     Widget habitContent = const Center(
       child: Text('No habits found. Start adding some!'),
@@ -111,8 +133,10 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
         habits: habits,
         onRemoveHabit: _removeHabit,
         onRefreshHealth: _refreshCompletedHabitsLength,
-        onCompleteHabit: _completeHabit,
-        onUncompleteHabit: _uncompleteHabit,
+        onToggleHabit: _toggleHabit,
+        onCompleteHabit: _toggleHabitCompletion,
+        // onCompleteHabit: _completeHabit,
+        // onUncompleteHabit: _uncompleteHabit,
       );
     }
 
@@ -143,25 +167,28 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 20),
-            Pet(actualHealth: 0),
+            Pet(
+              actualHealth: _actualHealth,
+              // onToggleHabit: _toggleHabit,
+            ),
             const SizedBox(height: 20),
-            PetStatusMessage(health),
+            PetStatusMessage(_actualHealth),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
                     onPressed: () {
-                      ref
-                          .read(apparentHealthProvider.notifier)
-                          .startCountdown(health);
+                      // ref
+                      //     .read(apparentHealthProvider.notifier)
+                      //     .startCountdown(health);
                     },
                     child: const Text('starve mi')),
                 TextButton(
                   onPressed: () {
-                    ref
-                        .read(apparentHealthProvider.notifier)
-                        .incrementHealth(health);
+                    // ref
+                    //     .read(apparentHealthProvider.notifier)
+                    //     .incrementHealth(health);
                   },
                   child: const Text('feed mi'),
                 ),
@@ -178,9 +205,9 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
                     child: const Text('all habits')),
                 TextButton(
                     onPressed: () {
-                      print(
-                        ref.watch(completedHabitsProvider),
-                      );
+                      // print(
+                      //   ref.watch(completedHabitsProvider),
+                      // );
                     },
                     child: const Text('completed habits')),
               ],
