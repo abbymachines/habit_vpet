@@ -30,6 +30,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   var _completedHabitsLength = 0;
   final List<Habit> _completedHabits = [];
   var _actualHealth = 0;
+  var _apparentHealth = 0;
 
   void _toggleHabit(Habit habit) {
     final isExisting = _completedHabits.contains(habit);
@@ -39,12 +40,18 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
         _completedHabits.remove(habit);
         _completedHabitsLength = _completedHabits.length;
         _refreshActualHealth();
+        ref
+            .read(apparentHealthProvider.notifier)
+            .decrementApparentHealth(_apparentHealth, _actualHealth);
       });
     } else {
       setState(() {
         _completedHabits.add(habit);
         _completedHabitsLength = _completedHabits.length;
         _refreshActualHealth();
+        ref
+            .read(apparentHealthProvider.notifier)
+            .incrementApparentHealth(_apparentHealth);
       });
     }
   }

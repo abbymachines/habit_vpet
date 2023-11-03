@@ -7,16 +7,12 @@ class HabitItem extends StatelessWidget {
     this.habit,
     this.onRefreshHealth, {
     super.key,
-    required this.onCompleteHabit,
-    // required this.onUncompleteHabit,
     required this.onToggleHabit,
     this.isComplete = false,
   });
 
   final Habit habit;
   final Function onRefreshHealth;
-  final void Function(Habit habit) onCompleteHabit;
-  // final void Function(Habit habit) onUncompleteHabit;
   final void Function(Habit habit) onToggleHabit;
   final bool isComplete;
 
@@ -46,8 +42,6 @@ class HabitItem extends StatelessWidget {
                 HabitButton(
                   attachedHabit: habit,
                   onRefreshHealth: onRefreshHealth,
-                  onCompleteHabit: onCompleteHabit,
-                  // onUncompleteHabit: onUncompleteHabit,
                   isComplete: isComplete,
                   onToggleHabit: onToggleHabit,
                 ),

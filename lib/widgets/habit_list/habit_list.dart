@@ -46,7 +46,6 @@ class _HabitListState extends State<HabitList> {
           // onCompleteHabit: widget.onCompleteHabit,
           // onUncompleteHabit: widget.onUncompleteHabit,
           onToggleHabit: widget.onToggleHabit,
-          onCompleteHabit: widget.onCompleteHabit,
         ),
       ),
     );

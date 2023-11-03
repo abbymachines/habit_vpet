@@ -33,7 +33,7 @@ class _PetState extends ConsumerState<Pet> {
 
   @override
   Widget build(BuildContext context) {
-    // final apparentHealth = ref.watch(apparentHealthProvider);
+    final apparentHealth = ref.watch(apparentHealthProvider);
 
     // final actualHealth = ref.watch(actualHealthProvider);
 
@@ -44,7 +44,7 @@ class _PetState extends ConsumerState<Pet> {
           height: 250,
           child: Column(
             children: [
-              HeartBar(widget.actualHealth),
+              HeartBar(apparentHealth),
               Text('actual health: ${widget.actualHealth}'),
               const FrameChanger(),
               Image.asset('assets/images/worm1.png', width: 200),
