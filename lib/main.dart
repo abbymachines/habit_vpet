@@ -66,11 +66,6 @@ class MyApp extends ConsumerWidget {
         ),
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'habit pet',
-          ),
-        ),
         body: HabitVpet(
             // health: healthProvider,
             ),
