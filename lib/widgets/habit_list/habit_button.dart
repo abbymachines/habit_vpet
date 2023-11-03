@@ -10,13 +10,13 @@ class HabitButton extends StatefulWidget {
   const HabitButton(
       {required this.attachedHabit,
       required this.onRefreshHealth,
-      required this.isComplete,
+      // required this.isComplete,
       required this.onToggleHabit,
       super.key});
 
   final Habit attachedHabit;
   final Function onRefreshHealth;
-  final bool isComplete;
+  // final bool isComplete;
   final void Function(Habit habit) onToggleHabit;
 
   @override
@@ -31,7 +31,7 @@ class _HabitButtonState extends State<HabitButton> {
   @override
   Widget build(BuildContext context) {
     void toggleHabitCompletion() {
-      if (widget.isComplete) {
+      if (_isComplete) {
         setState(() {
           _isComplete = false;
 
@@ -55,14 +55,16 @@ class _HabitButtonState extends State<HabitButton> {
         widget.onToggleHabit(widget.attachedHabit);
         toggleHabitCompletion();
         widget.onRefreshHealth();
-        ScaffoldMessenger.of(context).clearSnackBars();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(_isComplete ? 'yummy 😋' : 'oh...'),
-          ),
-        );
+        // ScaffoldMessenger.of(context).clearSnackBars();
+        // ScaffoldMessenger.of(context).showSnackBar(
+        //   SnackBar(
+        //     content: Text(_isComplete ? 'yummy 😋' : 'oh...'),
+        //   ),
+        // );
+        print('habit button pressed (habit_button.dart)');
       },
-      icon: Icon(_isComplete ? Icons.check_box : Icons.check_box_outline_blank),
+      // icon: Icon(_isComplete ? Icons.check_box : Icons.check_box_outline_blank),
+      icon: const Icon(Icons.check_box_outline_blank),
     );
   }
 }

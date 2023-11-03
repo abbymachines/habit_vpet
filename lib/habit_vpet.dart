@@ -28,6 +28,13 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
   var _actualHealth = 0;
   var _apparentHealth = 0;
 
+  void _showInfoMessage(String message) {
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message)),
+    );
+  }
+
   void _toggleHabit(Habit habit) {
     final isExisting = _completedHabits.contains(habit);
 
@@ -37,12 +44,14 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
         _completedHabitsLength = _completedHabits.length;
       });
       _decrementApparentHealth();
+      _showInfoMessage('🛑Habit marked INCOMPLETE🛑');
     } else {
       setState(() {
         _completedHabits.add(habit);
         _completedHabitsLength = _completedHabits.length;
       });
       _incrementApparentHealth();
+      _showInfoMessage('✅ Habit marked COMPLETE! :^) ✅');
     }
     _refreshCompletedHabitsLength();
     _refreshActualHealth();
