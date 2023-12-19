@@ -63,8 +63,8 @@ class _HabitButtonState extends State<HabitButton> {
         // );
         print('habit button pressed (habit_button.dart)');
       },
-      // icon: Icon(_isComplete ? Icons.check_box : Icons.check_box_outline_blank),
-      icon: const Icon(Icons.check_box_outline_blank),
+      icon: Icon(_isComplete ? Icons.check_box : Icons.check_box_outline_blank),
+      // icon: const Icon(Icons.check_box_outline_blank),
     );
   }
 }

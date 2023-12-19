@@ -12,10 +12,6 @@ final helloWorldProvider = Provider<String>((ref) {
   return 'Hello world!! shout out to world';
 });
 
-// final healthProvider = Provider<int>((ref) {
-//   return 0;
-// });
-
 void main() {
   runApp(
     ProviderScope(
@@ -28,8 +24,6 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final String value = ref.watch(helloWorldProvider);
-    // final int health = ref.read(healthProvider);
-    // final int health = 0;
 
     return MaterialApp(
       theme: ThemeData().copyWith(
@@ -66,9 +60,7 @@ class MyApp extends ConsumerWidget {
         ),
       ),
       home: Scaffold(
-        body: HabitVpet(
-            // health: healthProvider,
-            ),
+        body: HabitVpet(),
       ),
     );
   }

@@ -178,7 +178,7 @@ class _HabitVpetState extends ConsumerState<HabitVpet> {
               apparentHealth: _apparentHealth,
             ),
             const SizedBox(height: 20),
-            PetStatusMessage(_actualHealth),
+            PetStatusMessage(_apparentHealth),
             const SizedBox(height: 20),
             Row(
               children: [
